@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<a href="GetContents">コンテンツ一覧表示</a>
 </body>
 </html>
