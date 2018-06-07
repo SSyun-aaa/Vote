@@ -25,12 +25,11 @@
 <tr><td><%= StringEscapeUtils.escapeHtml4(contents.getContentsID()) %></td>
 	<td><%= StringEscapeUtils.escapeHtml4(contents.getContentsdataID()) %></td>
 	<td><%= StringEscapeUtils.escapeHtml4(contents.getContentsdataName()) %></td>
-	<td><img style="width:55%;" src="GetPicture?id=<%= contents.getContentsdataID() %>" class="pict"></td>
+	<td><img style="width:55%;" src="GetPicture?id=<%= contents.getContentsID() %>&id2=<%= contents.getContentsdataID()%>" class="pict"></td>
 	<td><%= StringEscapeUtils.escapeHtml4(contents.getIntroduction()) %></td>
 	<td><%= StringEscapeUtils.escapeHtml4(contents.getSex()) %></td>
 	<td><%= contents.getBirthday() %></td>
 	
-	<td><img style="width:55%;" src="GetPicture?id=<%= contents.getContentsID() %>" class="pict"></td>
 	<td><a href="GetContentsdata?id=<%=contents.getContentsID()%>">参加者一覧</a></td>
 	</tr>
 <%} %>
