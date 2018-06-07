@@ -19,6 +19,7 @@
 <td>投票開始日</td>
 <td>投票締切日</td>
 <td>画像</td>
+<td>ボタン</td>
 </tr>
 <%for(ContentsBean contents:arraycontents){ %>
 <tr><td><%= StringEscapeUtils.escapeHtml4(contents.getContentsID()) %></td>
@@ -28,6 +29,7 @@
 	<td><%= contents.getEndDate() %></td>
 	
 	<td><img style="width:55%;" src="GetPicture?id=<%= contents.getContentsID() %>" class="pict"></td>
+	<td><a href="GetContentsdata?id=<%=contents.getContentsID()%>">参加者一覧</a></td>
 	</tr>
 <%} %>
 </table>
