@@ -35,7 +35,7 @@
             <img class="img-responsive" src="img/marusan.jpg" height="350" width="350" alt="まるさん">
         </div>
 
-        <form action="#" name="loginform" method="post" onsubmit="return check()">
+        <form action="LoginServlet" name="loginform" method="post" onsubmit="return check()">
             <div class="form-group">
                 <label for="exampleInputUserID">ユーザID</label>
                 <input type="text" name="userid" class="form-control" id="exampleInputEmail1" placeholder="UserID">
