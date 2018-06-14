@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<a class="button" href="GetContents">コンテンツ取得</a>
 
 </body>
 </html>
