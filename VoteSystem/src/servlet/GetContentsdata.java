@@ -14,6 +14,7 @@ import dao.ContentsDAO;
 import dao.ContentsdataDAO;
 import model.ContentsBean;
 import model.ContentsdataBean;
+import model.UserBean;
 
 /**
  * Servlet implementation class GetContentsdata
@@ -35,13 +36,28 @@ public class GetContentsdata extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		//参加者すべての情報を取得し、セッションに格納
 		HttpSession session = request.getSession();
-		String id = request.getParameter("id");
+		UserBean userbean = (UserBean)session.getAttribute("loginuser");
+		
+		String id = "";
+		if(request.getParameter("id")==null || request.getParameter("id").equals("")){
+			id = (String)request.getAttribute("id");
+		}else{
+			id = request.getParameter("id");
+		}
+		
 		ContentsdataDAO contentsdatadao = new ContentsdataDAO();
 		ArrayList<ContentsdataBean> arraycontentsdata = new ArrayList<ContentsdataBean>();
 		arraycontentsdata = contentsdatadao.getAllContentsdata(id);
 		session.setAttribute("arraycontentsdata",arraycontentsdata);
-		request.getRequestDispatcher("U04.jsp").forward(request, response);
+		
+		if(userbean.getAuthority().equals("A")){
+			request.getRequestDispatcher("*.jsp").forward(request, response);
+		}else{
+			request.getRequestDispatcher("*.jsp").forward(request, response);
+		}
 	}
 
 	/**

@@ -165,6 +165,28 @@ public class ContentsdataDAO extends DaoBase{
 					}
 				}
 		}
+		//コンテンツの参加者すべてを削除
+		public void contentsdataAllDelete(String contentsid){
+			try{
+				//super.DbOpen();
+				super.connection();
+				
+				String sql ="Delete from contentsdata where contentsID = ?";
+				stmt = con.prepareStatement(sql);
+				
+				stmt.setString(1,contentsid);
+				rsno=stmt.executeUpdate();
+				
+				}catch(Exception e){
+					
+				}finally {
+					try{
+						super.DbClose();
+					}catch(Exception e){
+						System.out.println("error");
+					}
+				}
+		}
 		
 		//画像取得
 		public BufferedImage getPicture(String contentsid,String contentsdataid){

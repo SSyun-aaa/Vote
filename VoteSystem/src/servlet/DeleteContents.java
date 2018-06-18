@@ -1,8 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,20 +9,19 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.ContentsDAO;
-import model.ContentsBean;
-import model.UserBean;
+import dao.ContentsdataDAO;
 
 /**
- * Servlet implementation class GetContents
+ * Servlet implementation class DeleteContents
  */
-@WebServlet("/GetContents")
-public class GetContents extends HttpServlet {
+@WebServlet("/DeleteContents")
+public class DeleteContents extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetContents() {
+    public DeleteContents() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,19 +32,16 @@ public class GetContents extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		//すべてのコンテンツを取得し、セッションに格納
-		HttpSession session = request.getSession();
-		UserBean userbean = (UserBean)session.getAttribute("loginuser");
+		String contentsid = request.getParameter("c_id");
+		ContentsdataDAO contentsdatadao = new ContentsdataDAO();
 		ContentsDAO contentsdao = new ContentsDAO();
-		ArrayList<ContentsBean> arraycontents = new ArrayList<ContentsBean>();
-		arraycontents = contentsdao.getAllContents();
-		session.setAttribute("arraycontents",arraycontents);
 		
-		if(userbean.getAuthority().equals("A")){
-			request.getRequestDispatcher("U02.jsp").forward(request, response);
-		}else{
-			request.getRequestDispatcher("*.jsp").forward(request, response);
-		}
+		contentsdatadao.contentsdataAllDelete(contentsid);
+		contentsdao.contentsDelete(contentsid);
+		
+		request.setAttribute("id", contentsid);
+		
+		request.getRequestDispatcher("GetContentsdata").forward(request, response);
 	}
 
 	/**
