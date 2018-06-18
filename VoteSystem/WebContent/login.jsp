@@ -29,8 +29,6 @@
     </nav>
 
     <div class="container">
-
-        <h1 class="textcenter">ログイン</h1>
         <div class="textcenter">
             <img class="img-responsive" src="img/marusan.jpg" height="350" width="350" alt="まるさん">
         </div>

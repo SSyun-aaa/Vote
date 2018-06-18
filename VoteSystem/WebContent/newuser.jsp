@@ -31,7 +31,7 @@
     <div class="container">
         <h1 class="textcenter">新規登録</h1>
 
-        <form action="#" name="newuserform" method="post" onsubmit="return check()">
+        <form action="#" name="form" method="post" onsubmit="return check()">
             <div class="form-group">
                 <label for="exampleInputUserID">ユーザID</label>
                 <input type="text" name="userid" class="form-control" id="exampleInputEmail1" placeholder="UserID">
@@ -45,17 +45,9 @@
                 <input type="password" name="password2" class="form-control" id="exampleInputPassword2" placeholder="Password(確認用)">
             </div>
             <div class="form-group">
-                <label for="exampleInputBirthday">生年月日</label><br>
-                <select name="year" id="id_year">
-                    <!-- option要素がjavascriptのプログラムにより挿入される、id_year -->
-                </select>
-                <select name="month" id="id_month">
-                    <!-- option要素がjavascriptのプログラムにより挿入される、id_month -->
-                </select>
-                <select name="day" id="id_day">
-                    <!-- option要素がjavascriptのプログラムにより挿入される、id_day -->
-                </select>
-            </div>
+				<label for="birthday">生年月日</label><br> 
+				<input type="date" class="form-control" name="birthday">
+			</div>
             <div class="form-group">
                 <label for="exampleInputBirthday">性別</label><br>
                 <div class="radio-inline">
@@ -71,75 +63,36 @@
                     </label>
                 </div>
             </div>
-            <button type="submit" class="btn btn-secondary">確認</button>
+            <button type="submit" class="btn btn-secondary" onclick="location.href='newusercheck.jsp'">確認</button>
         </form>
     </div>
 
     <footer class="footer">
         <small>Copyright &copy; Sato Team, all rights reserved.</small>
     </footer>
-
+    
     <script>
-    (function() {
-        'use strict';
-
-        /*
-        今日の日付データを変数todayに格納
-        */
-        var optionLoop, this_day, this_month, this_year, today;
-        today = new Date();
-        this_year = today.getFullYear();
-        this_month = today.getMonth() + 1;
-        this_day = today.getDate();
-
-        /*
-        ループ処理（スタート数字、終了数字、表示id名、デフォルト数字）
-        */
-        optionLoop = function(start, end, id, this_day) {
-            var i, opt;
-
-            opt = null;
-            for (i = start; i <= end ; i++) {
-                if (i === this_day) {
-                    opt += "<option value='" + i + "' selected>" + i + "</option>";
-                } else {
-                    opt += "<option value='" + i + "'>" + i + "</option>";
-                }
-            }
-            return document.getElementById(id).innerHTML = opt;
-        };
-
-
-        /*
-        関数設定（スタート数字[必須]、終了数字[必須]、表示id名[必須]、デフォルト数字[省略可能]）
-        */
-        optionLoop(1950, this_year, 'id_year', this_year);
-        optionLoop(1, 12, 'id_month', this_month);
-        optionLoop(1, 31, 'id_day', this_day);
-        })();
-
-        function check(){
-            var flg = 0;
-            var che = 0;
-
-            if (document.newuserform.userid.value == "" || document.newuserform.password1.value == "" || document.newuserform.password2.value == "") {
-                flg = 1;
-            }
-            if (document.newuserform.password1.value == document.newuserform.password2.value) {
-                che = 2;
-            }
-
-            if (flg == 1) {
-                aleat('必須項目が入力されていません');
-                return false;
-            } else if (che == 2) {
-                aleat('パスワードが一致しません');
-                return false;
-            } else {
-                return true;
-            }
-        }
+    	function check(){
+    		var flg = 0;
+    		var alert = "";
+    		if(document.form.userid.value == "" || document.form.password1.value == "" || document.form.password2.value == ""){
+    			flg = 1;
+    			alert = "必須項目が入力されていません。";
+    		} else if(document.form.password1.value != document.form.password1.value) {
+    			flg = 1;
+    			if(alert != ""){
+    				alert = alert + "¥nパスワードが一致していません。"
+    			}
+    		}
+    		
+    		if(flg = 1){
+    			return false;
+    		} else {
+    			return true;
+    		}
+    	}
     </script>
+    
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
