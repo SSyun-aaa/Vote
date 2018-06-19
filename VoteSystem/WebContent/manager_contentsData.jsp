@@ -71,6 +71,8 @@
                        	<th>コンテンツ詳細名</th>
                        	<th>性別</th>
                        	<th>生年月日</th>
+                       	<th>概要</th>
+                       	<th>画像</th>
                        	<th></th>
                        	<th></th>
                    	</tr>
@@ -80,6 +82,12 @@
                        	<td>いちまる</td>
                        	<td>男</td>
                        	<td>YYYY/mm/DD</td>
+                       	<td>
+                       		<article>
+                       			わっしょーいどんどこたのしーいうひょーいはなみずおいしいぞーうわっしょーいどんどこたのしーいうひょーいはなみずおいしいぞーうわっしょーいどんどこたのしーいうひょーいはなみずおいしいぞーうわっしょーいどんどこたのしーいうひょーいはなみずおいしいぞーう
+                       		</article>
+                       	</td>
+                       	<td><img class="img-responsive" src="img/marusan.jpg" height="65" width="100" alt="まるさん"></td>
                        	<td><button type="button" class="btn btn-warning" onclick="location.href='manager_contentsDataChange.jsp'">変更</button></td>
                        	<td><button type="button" class="btn btn-danger" onclick="return confirm('削除してもいいですか？')">削除</button></td>
                    	</tr>
@@ -89,6 +97,8 @@
                        	<td>いちまる</td>
                        	<td>男</td>
                        	<td>YYYY/mm/DD</td>
+                       	<td></td>
+                       	<td><img class="img-responsive" src="img/marusan.jpg" height="65" width="100" alt="まるさん"></td>
                        	<td><button type="button" class="btn btn-warning" onclick="location.href='manager_contentsDataChange.jsp'">変更</button></td>
                        	<td><button type="button" class="btn btn-danger" onclick="return confirm('削除してもいいですか？')">削除</button></td>
                    	</tr>
@@ -98,6 +108,8 @@
                        	<td>いちまる</td>
                        	<td>男</td>
                        	<td>YYYY/mm/DD</td>
+                       	<td></td>
+                       	<td><img class="img-responsive" src="img/marusan.jpg" height="65" width="100" alt="まるさん"></td>
                        	<td><button type="button" class="btn btn-warning" onclick="location.href='manager_contentsDataChange.jsp'">変更</button></td>
                        	<td><button type="button" class="btn btn-danger" onclick="return confirm('削除してもいいですか？')">削除</button></td>
                    	</tr>
@@ -109,6 +121,8 @@
 	<footer class="footer">
 		<small>Copyright &copy; Sato Team, all rights reserved.</small>
 	</footer>
+	
+	<script type="text/javascript" src="js/readmore.js"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>
@@ -120,5 +134,15 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
 		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
 		crossorigin="anonymous"></script>
+	<script>
+		$(function() {
+			$('article').readmore({
+				speed: 1000,
+				collapsedHeight: 10,
+				moreLink: '<a href="#">続きを読む</a>',
+				lessLink: '<a href="#">閉じる</a>'
+			});
+		});
+	</script>
 </body>
 </html>
