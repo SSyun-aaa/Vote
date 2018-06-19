@@ -25,6 +25,7 @@ public class VotehistoryBean implements Serializable {
 		this.userID = userID;
 		this.contentsID = contentsID;
 		this.contentsdataID = contentsdataID;
+		this.votedate = votedate;
 	}
 
 	public String getVotehistoryID() {

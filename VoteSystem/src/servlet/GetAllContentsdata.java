@@ -20,13 +20,13 @@ import model.UserBean;
  * Servlet implementation class GetContentsdata
  */
 @WebServlet("/GetContentsdata")
-public class GetContentsdata extends HttpServlet {
+public class GetAllContentsdata extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetContentsdata() {
+    public GetAllContentsdata() {
         super();
         // TODO Auto-generated constructor stub
     }
