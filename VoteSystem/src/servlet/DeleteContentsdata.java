@@ -38,7 +38,7 @@ public class DeleteContentsdata extends HttpServlet {
 		
 		request.setAttribute("id", contentsid);
 		
-		request.getRequestDispatcher("GetContentsdata").forward(request, response);
+		request.getRequestDispatcher("GetAllContentsdata").forward(request, response);
 	}
 
 	/**
