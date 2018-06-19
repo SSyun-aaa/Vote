@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.ContentsDAO;
+import dao.ContentsdataDAO;
+
 /**
  * Servlet implementation class DeleteContentsdata
  */
@@ -27,7 +30,15 @@ public class DeleteContentsdata extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String contentsid = request.getParameter("c_id");
+		String contentsdataid = request.getParameter("d_id");
+		ContentsdataDAO contentsdatadao = new ContentsdataDAO();
+		
+		contentsdatadao.contentsdataDelete(contentsid,contentsdataid);
+		
+		request.setAttribute("id", contentsid);
+		
+		request.getRequestDispatcher("GetContentsdata").forward(request, response);
 	}
 
 	/**

@@ -39,9 +39,8 @@ public class DeleteContents extends HttpServlet {
 		contentsdatadao.contentsdataAllDelete(contentsid);
 		contentsdao.contentsDelete(contentsid);
 		
-		request.setAttribute("id", contentsid);
 		
-		request.getRequestDispatcher("GetContentsdata").forward(request, response);
+		request.getRequestDispatcher("GetContents").forward(request, response);
 	}
 
 	/**
