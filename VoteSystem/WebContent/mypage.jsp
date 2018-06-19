@@ -52,9 +52,9 @@
 					<div class="list-group">
 						<a href="votehistory.jsp" class="list-group-item list-group-item-action">投票履歴</a>
 						<a href="membercheck.jsp" class="list-group-item list-group-item-action">会員情報の確認</a>
-						<a href="memberchange.jsp" class="list-group-item list-group-item-action">ユーザ名の変更</a>
-						<a href="memberchange.jsp" class="list-group-item list-group-item-action">パスワードの変更</a>
-						<a href="memberdelete.jsp" class="list-group-item list-group-item-action">退会</a>
+						<a href="membernamechange.jsp" class="list-group-item list-group-item-action">ユーザ名の変更</a>
+						<a href="memberpasschange.jsp" class="list-group-item list-group-item-action">パスワードの変更</a>
+						<a href="memberdelete.jsp" class="list-group-item list-group-item-action" onclick="return confirm('削除してもいいですか？')">退会</a>
 					</div>
 				</div>
 			</div>

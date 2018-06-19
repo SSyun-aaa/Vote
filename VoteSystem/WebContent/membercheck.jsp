@@ -50,35 +50,26 @@
 				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 					<h1>会員情報の確認</h1>
 					<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
+						<thead>
+							<tr>
+								<th scope="col">ユーザID</th>
+								<th scope="col">ユーザ名</th>
+								<th scope="col">登録日</th>
+								<th scope="col">性別</th>
+								<th scope="col">誕生日</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>ichimaru</td>
+								<td>いちまる</td>
+								<td>YYYY:mm:DD</td>
+								<td>男</td>
+								<td>YYYY:mm:DD</td>
+							</tr>
+						</tbody>
+					</table>
+					<button onclick="history.back()" class="btn btn-secondary">戻る</button>
 				</div>
 			</div>
 			</main>
