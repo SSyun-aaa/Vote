@@ -64,7 +64,7 @@
 							<a href="manager_contentsUpdate.jsp" class="list-group-item list-group-item-action">情報更新</a>
 							<a href="manager_contentsData.jsp" class="list-group-item list-group-item-action">参加者</a>
 							<a href="manager_contentsStatus.jsp" class="list-group-item list-group-item-action">状況確認</a>
-							<a href="manager_contentsDelete.jsp" class="list-group-item list-group-item-action">削除</a>
+							<a href="manager_contentsDelete.jsp" class="list-group-item list-group-item-action" onclick="return confirm('退会してもいいですか？')">削除</a>
 						</div>
 					</div>
 
