@@ -21,7 +21,6 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="login.jsp">ログイン<span class="sr-only">(current)</span></a>
                 </li>
-                
                 <li class="nav-item">
                     <a class="nav-link" href="newuser.jsp">新規登録</a>
                 </li>
