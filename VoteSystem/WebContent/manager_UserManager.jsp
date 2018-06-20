@@ -80,7 +80,7 @@
 								<td>YYYY:MM:DD hh:mm:ss</td>
 								<td><button type="button" class="btn btn-warning" onclick="location.href='manager_UserChange.jsp'">情報変更</button></td>
 								<td><button type="button" class="btn btn-warning" onclick="location.href='manager_UserPassChange.jsp'">パス変更</button></td>
-								<td><button type="button" class="btn btn-danger">削除</button></td>
+								<td><button type="button" class="btn btn-danger" onclick="return confirm('削除してもいいですか？')">削除</button></td>
 							</tr>
 							<tr>
 								<th scope="row">2</th>
@@ -91,7 +91,7 @@
 								<td>YYYY:MM:DD hh:mm:ss</td>
 								<td><button type="button" class="btn btn-warning" onclick="location.href='manager_UserChange.jsp'">情報変更</button></td>
 								<td><button type="button" class="btn btn-warning" onclick="location.href='manager_UserPassChange.jsp'">パス変更</button></td>
-								<td><button type="button" class="btn btn-danger">削除</button></td>
+								<td><button type="button" class="btn btn-danger" onclick="return confirm('削除してもいいですか？')">削除</button></td>
 							</tr>
 							<tr>
 								<th scope="row">3</th>
@@ -102,7 +102,7 @@
 								<td>YYYY:MM:DD hh:mm:ss</td>
 								<td><button type="button" class="btn btn-warning" onclick="location.href='manager_UserChange.jsp'">情報変更</button></td>
 								<td><button type="button" class="btn btn-warning" onclick="location.href='manager_UserPassChange.jsp'">パス変更</button></td>
-								<td><button type="button" class="btn btn-danger">削除</button></td>
+								<td><button type="button" class="btn btn-danger" onclick="return confirm('削除してもいいですか？')">削除</button></td>
 							</tr>
 						</tbody>
 					</table>

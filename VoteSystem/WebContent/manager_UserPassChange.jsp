@@ -79,22 +79,18 @@
 						</tbody>
 					</table>
 				</div>
-				<form name="check" action="#" method="post">
+				<form name="form" action="#" method="post" onsubmit="return check()">
 					<div class="form-group">
 						<label for="userId">ユーザID</label>
-						<input type="text" class="form-control" id="userId" placeholder="(ユーザID)" readonly>
-					</div>
-					<div class="form-group">
-						<label for="nowPassword">現在のパスワード</label>
-						<input type="password" name="nowPassword" class="form-control" id="nowPassword" placeholder="Password">
+						<input type="text" class="form-control" id="userId" name="userid" placeholder="(ユーザID)" readonly>
 					</div>
 					<div class="form-group">
 						<label for="Password1">パスワード</label>
-						<input type="password" name="password1" class="form-control" id="Password1" placeholder="Password">
+						<input type="password" name="password1" class="form-control" id="Password1" name="password1" placeholder="Password">
 					</div>
 					<div class="form-group">
 						<label for="Password2">パスワード(確認用)</label>
-						<input type="password" name="password2" class="form-control" id="Password2" placeholder="Password(確認用)">
+						<input type="password" name="password2" class="form-control" id="Password2" name="password2" placeholder="Password(確認用)">
 					</div>
 					<button type="submit" class="btn btn-secondary">変更</button>
 				</form>
@@ -117,5 +113,26 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
 		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
 		crossorigin="anonymous"></script>
+	<script>
+		function check(){
+			var flg = 0;
+			if(document.form.password1.value == document.form.password2.value){
+				flg = 1;
+			}else if(document.form.userid.value == "" || document.form.password1.value == "" || document.form.password2.value == ""){
+				flg = 2;
+			}
+			
+			if(flg == 1){
+				alert('パスワードが一致しません');
+				return false;
+			} else if(flg == 2){
+				alert('必要項目が入力されていません');
+				return false;
+			} else {
+				return true;
+			}
+		}
+	</script>
+	
 </body>
 </html>

@@ -55,14 +55,14 @@
 					</div>
 				</div>
 				<h1>コンテンツ確認</h1>
-				<form name="check" action="#" method="post">
+				<form name="form" action="#" method="post" onsubmit="return check()">
 					<div class="form-group">
 						<label for="contentsId">コンテンツID</label>
-						<input type="text" class="form-control" id="contentsId" value="（コンテンツID）" placeholder="コンテンツID" readonly>
+						<input type="text" class="form-control" id="contentsId" name="contentsId" value="（コンテンツID）" placeholder="コンテンツID" readonly>
 					</div>
 					<div class="form-group">
 						<label for="contentsName">コンテンツ名（コンテスト名）</label>
-						<input type="text" class="form-control" id="contentsName" placeholder="コンテンツ名">
+						<input type="text" class="form-control" id="contentsName" name="contentsName" placeholder="コンテンツ名">
 					</div>
 					<div class="form-group">
 						<label for="start">投票開始日</label><br> 
@@ -97,5 +97,20 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
 		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
 		crossorigin="anonymous"></script>
+	<script>
+		function check(){
+	        var flg = 0;
+	        if (document.form.contentsId.value == "" || document.form.contentsName.value == "" || document.form.starttime.value == "" || document.form.endtime.value == "") {
+	            flg = 1;
+	        }
+	
+	        if (flg == 1) {
+	            alert('必須項目が入力されていません');
+	            return false;
+	        } else {
+	            return true;
+	        }
+	    }
+	</script>
 </body>
 </html>
