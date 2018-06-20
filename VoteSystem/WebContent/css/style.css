@@ -65,6 +65,16 @@ h1{
     color: rgb(0, 0, 0);
     text-decoration: none;
 }
+#contents table th{
+	text-align:center;
+}
+#contents button.back{
+	background:linear-gradient(to bottom,#607d8b,#eceff1,#607d8b);
+	width: 80px;
+	padding: 10px;
+	border-radius:10px;
+
+}
 
 /* contentslist.html */
 section{
