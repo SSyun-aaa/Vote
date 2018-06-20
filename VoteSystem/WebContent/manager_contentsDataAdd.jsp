@@ -54,11 +54,11 @@
 						</a>
 					</div>
 				</div>
-				<h1>コンテンツ確認</h1>
+				<h1>コンテンツ詳細登録</h1>
 				<form name="check" action="#" method="post" onsubmit="return check()">
 					<div class="form-group">
 						<label for="contentsdataId">コンテンツ詳細ID</label>
-						<input type="text" class="form-control" id="contentsdataId" value="（コンテンツ詳細ID）" placeholder="コンテンツID" readonly>
+						<input type="text" class="form-control" id="contentsdataId" value="入力不可" placeholder="コンテンツID" readonly>
 					</div>
 					<div class="form-group">
 						<label for="contentsdataName">コンテンツ詳細名（出場者名）</label>
@@ -85,7 +85,7 @@
  					    <label for="contents">コンテンツ詳細画像 (画像サイズ：800px × 500px)</label>
 					    <input type="file" class="form-control-file" id="contentsimage">
   					</div>
-  					<button type="submit" class="btn btn-secondary">確認</button>
+  					<button type="submit" onclick="location.href='manager_contentsDataAddCheck.jsp'" class="btn btn-secondary">確認</button>
 				</form>
 			</div>
 		</div>

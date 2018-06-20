@@ -79,14 +79,14 @@
 						</tbody>
 					</table>
 				</div>
-				<form name="check" action="#" method="post">
+				<form name="form" action="#" method="post" onsubmit="return check()">
 					<div class="form-group">
 						<label for="userId">ユーザID</label>
-						<input type="text" class="form-control" id="userId" value="(ユーザID)" placeholder="(ユーザID)">
+						<input type="text" class="form-control" id="userId" name="userid" value="(ユーザID)" placeholder="(ユーザID)">
 					</div>
 					<div class="form-group">
 						<label for="userName">ユーザ名</label>
-						<input type="text" class="form-control" id="userName" value="(ユーザ名)" placeholder="ユーザ名">
+						<input type="text" class="form-control" id="userName" name="username" value="(ユーザ名)" placeholder="ユーザ名">
 					</div>
 					<label for="birthday">生年月日</label><br> 
 					<input type="date" class="form-control" name="birthday" value="2017-06-01">
@@ -124,5 +124,20 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
 		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
 		crossorigin="anonymous"></script>
+	<script>
+		function check(){
+			var flg = 0;
+	        if (document.form.userid.value == "" || document.form.username.value == "" || document.form.birthday.value == "") {
+	            flg = 1;
+	        }
+	
+	        if (flg == 1) {
+	            alert('必須項目が入力されていません');
+	            return false;
+	        } else {
+	            return true;
+	        }
+		}
+	</script>
 </body>
 </html>

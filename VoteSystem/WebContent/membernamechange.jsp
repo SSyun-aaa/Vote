@@ -49,7 +49,7 @@
 			<div class="row">
 				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 					<h1>ユーザ名の変更</h1>
-					<form>
+					<form name="form" action="#" method="post" onsubmit="return check()">
 						<div class="form-group row">
 							<label for="name" class="col-sm-3 col-form-label">現在のユーザ名</label>
 							<div class="col-sm-9">
@@ -59,7 +59,7 @@
 						<div class="form-group row">
 							<label for="newname" class="col-sm-3 col-form-label">新しいユーザ名</label>
 							<div class="col-sm-9">
-								<input type="text" class="form-control" id="newname" placeholder="新しいユーザ名">
+								<input type="text" class="form-control" id="newname" name="username" placeholder="新しいユーザ名">
 							</div>
 						</div>
 						<button type="submit" class="btn btn-secondary">変更</button>
@@ -85,5 +85,16 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
 		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
 		crossorigin="anonymous"></script>
+	<script>
+		function check(){
+			var flg = 0;
+			if(document.form.username.value == ""){
+				alert('必要項目が入力されていません');
+				return false;
+			}else{
+				return true;
+			}
+		}
+	</script>
 </body>
 </html>
