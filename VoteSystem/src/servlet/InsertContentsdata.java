@@ -1,9 +1,13 @@
 package servlet;
 
+import java.awt.image.BufferedImage;
+import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Date;
 
+import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,6 +19,8 @@ import javax.servlet.http.Part;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import dao.ContentsdataDAO;
+import model.ContentsBean;
+import model.ContentsdataBean;
 
 /**
  * Servlet implementation class InsertContentsdata
@@ -36,7 +42,8 @@ public class InsertContentsdata extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		ContentsdataDAO contentsdatadao = new ContentsdataDAO();
+		contentsdatadao.contentsdataInsert(c_id, d_id, name, is, intro, sex, birth);
 	}
 
 	/**
@@ -59,8 +66,13 @@ public class InsertContentsdata extends HttpServlet {
 		String sex = request.getParameter("sex");
 		Date birth = Date.valueOf(request.getParameter("birth"));
 		
-		ContentsdataDAO contentsdatadao = new ContentsdataDAO();
-		contentsdatadao.contentsdataInsert(c_id, d_id, name, is, intro, sex, birth);
+		ContentsdataBean contentsdatabean = new ContentsdataBean(c_id, d_id, name, (Blob) is, intro, sex, birth);
+		BufferedInputStream bis = new BufferedInputStream(is);
+		BufferedImage bi = ImageIO.read(bis);
+		
+		session.setAttribute("insertcontentsdata",contentsdatabean);
+		session.setAttribute("bi",bi);
+		
 		//フォワード画面入力予定
 		request.getRequestDispatcher(".jsp").forward(request, response);
 	}
