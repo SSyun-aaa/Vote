@@ -49,7 +49,7 @@
 			<div class="row">
 				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 					<h1>ユーザ名の変更</h1>
-					<form>
+					<form onsubmit="return check()" action="#" name="form" method="post">
 						<div class="form-group row">
 							<label for="pass" class="col-sm-3 col-form-label">現在のパスワード</label>
 							<div class="col-sm-9">
@@ -91,5 +91,26 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
 		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
 		crossorigin="anonymous"></script>
+	<script>
+		function check(){
+			var flg = 0;
+			if(document.form.newpass1.value == "" || document.form.newpass2.value == ""){
+				flg = 1;
+			}
+			if(document.form.newpass1.value == document.form.newpass2.value){
+				flg = 2;
+			}
+			
+			if(flg == 1){
+				alert('パスワードが一致しません');
+				return false;
+			} else if(flg == 2){
+				alert('必要項目が入力されていません');
+				return false;
+			} else {
+				return true;
+			}
+		}
+	</script>
 </body>
 </html>
