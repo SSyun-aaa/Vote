@@ -31,7 +31,7 @@
     </nav>
 
     <div class="container">
-        <h1><img class="img-fluid" src="img/contents_test.jpeg" width="100%" alt="コンテンツ一覧"></h1>
+        <img class="img-fluid image" src="img/contents_test.jpeg" width="100%" alt="コンテンツ一覧">
         <div class="row">
             <!-- 固定サイドメニュー -->
             <div class="col-12 col-md-3 col-xl-4 bd-sidebar">

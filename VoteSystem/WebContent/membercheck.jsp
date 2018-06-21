@@ -69,7 +69,7 @@
 							</tr>
 						</tbody>
 					</table>
-					<button onclick="history.back()" class="btn btn-secondary">戻る</button>
+					<button class="btn btn-secondary" onclick="history.back()">戻る</button>
 				</div>
 			</div>
 			</main>
