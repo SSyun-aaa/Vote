@@ -64,48 +64,78 @@
 						</a>
 					</div>
 				</div>
-				<table class="table">
-                   	<tr>
-						<th></th>
-                      	<th>コンテンツ詳細ID</th>
-                       	<th>コンテンツ詳細名</th>
-                       	<th>性別</th>
-                       	<th>生年月日</th>
-                       	<th>画像</th>
-                       	<th></th>
-                       	<th></th>
-                   	</tr>
-                   	<tr>
-                   		<td>1</td>
-                       	<td>ichimaru</td>
-                       	<td>いちまる</td>
-                       	<td>男</td>
-                       	<td>YYYY/mm/DD</td>
-                       	<td><img class="img-responsive" src="img/marusan.jpg" height="65" width="100" alt="まるさん"></td>
-                       	<td><button type="button" class="btn btn-warning" onclick="location.href='manager_contentsDataChange.jsp'">変更</button></td>
-                       	<td><button type="button" class="btn btn-danger" onclick="return confirm('削除してもいいですか？')">削除</button></td>
-                   	</tr>
-                   	<tr>
-                   		<td>2</td>
-                       	<td>ichimaru</td>
-                       	<td>いちまる</td>
-                       	<td>男</td>
-                       	<td>YYYY/mm/DD</td>
-                       	<td><img class="img-responsive" src="img/marusan.jpg" height="65" width="100" alt="まるさん"></td>
-                       	<td><button type="button" class="btn btn-warning" onclick="location.href='manager_contentsDataChange.jsp'">変更</button></td>
-                       	<td><button type="button" class="btn btn-danger" onclick="return confirm('削除してもいいですか？')">削除</button></td>
-                   	</tr>
-                   	<tr>
-                   		<td>3</td>
-                       	<td>ichimaru</td>
-                       	<td>いちまる</td>
-                       	<td>男</td>
-                       	<td>YYYY/mm/DD</td>
-                       	<td><img class="img-responsive" src="img/marusan.jpg" height="65" width="100" alt="まるさん"></td>
-                       	<td><button type="button" class="btn btn-warning" onclick="location.href='manager_contentsDataChange.jsp'">変更</button></td>
-                       	<td><button type="button" class="btn btn-danger" onclick="return confirm('削除してもいいですか？')">削除</button></td>
-                   	</tr>
-                </table>
+				<div class="table-responsive">
+					<table class="table">
+	                   	<tr>
+							<th></th>
+	                      	<th>コンテンツ詳細ID</th>
+	                       	<th>コンテンツ詳細名</th>
+	                       	<th>性別</th>
+	                       	<th>生年月日</th>
+	                       	<th>概要</th>
+	                       	<th>画像</th>
+	                       	<th></th>
+	                       	<th></th>
+	                   	</tr>
+	                   	<tr>
+	                   		<td>1</td>
+	                       	<td>ichimaru</td>
+	                       	<td>いちまる</td>
+	                       	<td>男</td>
+	                       	<td>YYYY/mm/DD</td>
+	                       	<td>
+		                       	<div class="dropdown">
+									<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">概要</button>
+									<div class="dropdown-menu p-4 text-muted"
+										style="max-width: 200px;">
+										<p>よろしくなす！</p>
+									</div>
+								</div>
+							</td>
+	                       	<td><img class="img-responsive" src="img/marusan.jpg" height="65" width="100" alt="まるさん"></td>
+	                       	<td><button type="button" class="btn btn-warning" onclick="location.href='manager_contentsDataChange.jsp'">変更</button></td>
+	                       	<td><button type="button" class="btn btn-danger" onclick="return confirm('削除してもいいですか？')">削除</button></td>
+	                   	</tr>
+	                   	<tr>
+	                   		<td>2</td>
+	                       	<td>ichimaru</td>
+	                       	<td>いちまる</td>
+	                       	<td>男</td>
+	                       	<td>YYYY/mm/DD</td>
+	                       	<td>
+		                       	<div class="dropdown">
+									<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">概要</button>
+									<div class="dropdown-menu p-4 text-muted"
+										style="max-width: 200px;">
+										<p>よろしくなす！</p>
+									</div>
+								</div>
+							</td>
+	                       	<td><img class="img-responsive" src="img/marusan.jpg" height="65" width="100" alt="まるさん"></td>
+	                       	<td><button type="button" class="btn btn-warning" onclick="location.href='manager_contentsDataChange.jsp'">変更</button></td>
+	                       	<td><button type="button" class="btn btn-danger" onclick="return confirm('削除してもいいですか？')">削除</button></td>
+	                   	</tr>
+	                   	<tr>
+	                   		<td>3</td>
+	                       	<td>ichimaru</td>
+	                       	<td>いちまる</td>
+	                       	<td>男</td>
+	                       	<td>YYYY/mm/DD</td>
+	                       	<td>
+		                       	<div class="dropdown">
+									<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">概要</button>
+									<div class="dropdown-menu p-4 text-muted"
+										style="max-width: 200px;">
+										<p>よろしくなす！</p>
+									</div>
+								</div>
+							</td>
+	                       	<td><img class="img-responsive" src="img/marusan.jpg" height="65" width="100" alt="まるさん"></td>
+	                       	<td><button type="button" class="btn btn-warning" onclick="location.href='manager_contentsDataChange.jsp'">変更</button></td>
+	                       	<td><button type="button" class="btn btn-danger" onclick="return confirm('削除してもいいですか？')">削除</button></td>
+	                   	</tr>
+	                </table>
+	            </div>
 			</div>
 		</div>
 	</div>
