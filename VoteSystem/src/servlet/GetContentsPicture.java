@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.ContentsDAO;
 
@@ -35,7 +36,14 @@ public class GetContentsPicture extends HttpServlet {
 		// TODO Auto-generated method stub
 		String id = request.getParameter("id");//商品のidを取得
 		ContentsDAO contentsdao = new ContentsDAO();//daoの用意
-		BufferedImage img = contentsdao.getPicture(id);//商品の画像を取得
+		HttpSession session = request.getSession();
+		BufferedImage img;
+		if(session.getAttribute("bi")!=null){
+			img = (BufferedImage)session.getAttribute("bi");
+			session.removeAttribute("bi");
+		}else{
+			img =  contentsdao.getPicture(id);
+		}
 		
 		// 画像をクライアントに返却する
 		response.setContentType("image/jpeg");//画像の型指定

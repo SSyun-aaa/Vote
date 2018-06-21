@@ -42,8 +42,13 @@ public class InsertContentsdata extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession session = request.getSession();
 		ContentsdataDAO contentsdatadao = new ContentsdataDAO();
-		contentsdatadao.contentsdataInsert(c_id, d_id, name, is, intro, sex, birth);
+		
+		ContentsdataBean contentsdatabean = (ContentsdataBean)session.getAttribute("insertcontentsdata");
+		contentsdatadao.contentsdataInsert(contentsdatabean.getContentsID(), contentsdatabean.getContentsdataID(), contentsdatabean.getContentsdataName(), (InputStream)contentsdatabean.getContentsdataPicture(), contentsdatabean.getIntroduction(), contentsdatabean.getSex(), contentsdatabean.getBirthday());
+		
+		request.getRequestDispatcher("GetAllContentsdata").forward(request, response);
 	}
 
 	/**
@@ -71,7 +76,7 @@ public class InsertContentsdata extends HttpServlet {
 		BufferedImage bi = ImageIO.read(bis);
 		
 		session.setAttribute("insertcontentsdata",contentsdatabean);
-		session.setAttribute("bi",bi);
+		session.setAttribute("insertcontentsdatapicture",bi);
 		
 		//フォワード画面入力予定
 		request.getRequestDispatcher(".jsp").forward(request, response);
