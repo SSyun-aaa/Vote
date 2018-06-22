@@ -34,7 +34,11 @@
         <form action="#" name="form" method="post" onsubmit="return check()">
             <div class="form-group">
                 <label for="exampleInputUserID">ユーザID</label>
-                <input type="text" name="userid" class="form-control" id="exampleInputEmail1" placeholder="UserID">
+                <input type="text" name="userid" class="form-control" id="exampleInputUserID" placeholder="UserID">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputUserName">名前</label>
+                <input type="text" name="username" class="form-control" id="exampleInputUserID" placeholder="UserName">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">パスワード</label>
@@ -75,10 +79,10 @@
     	function check(){
     		var flg = 0;
     		var alert = "";
-    		if(document.form.userid.value == "" || document.form.password1.value == "" || document.form.password2.value == ""){
+    		if(document.form.userid.value == "" || document.form.username.value == "" || document.form.password1.value == "" || document.form.password2.value == "" || document.form.birthday.value == ""){
     			flg = 1;
     			alert = "必須項目が入力されていません。";
-    		} else if(document.form.password1.value != document.form.password1.value) {
+    		} else if(document.form.password1.value != document.form.password2.value) {
     			flg = 1;
     			if(alert != ""){
     				alert = alert + "¥nパスワードが一致していません。"

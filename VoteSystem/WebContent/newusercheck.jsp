@@ -30,7 +30,7 @@
 
         <div class="container">
             <h1 class="textcenter">新規登録情報確認</h1>
-            <form class="form-horizontal" action="#" name="newusercheckform" method="post">
+            <form class="form-horizontal" action="#" name="newusercheckform" method="get">
                 <div class="form-group row">
     				<label for="userid" class="col-sm-3 col-form-label">ユーザID</label>
    					<div class="col-sm-9">
