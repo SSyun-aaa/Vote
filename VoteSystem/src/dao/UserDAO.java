@@ -41,7 +41,7 @@ public class UserDAO extends DaoBase {
 		try{
 			//super.DbOpen();
 			super.connection();
-			String sql  ="insert into user(userID,userName,sex,birthday) values(?,?,?,?,?)";
+			String sql  ="insert into user(userID,userName,sex,birthday) values(?,?,?,?)";
 
 			stmt = con.prepareStatement(sql);
 
