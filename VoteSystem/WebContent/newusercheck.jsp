@@ -30,31 +30,31 @@
 
         <div class="container">
             <h1 class="textcenter">新規登録情報確認</h1>
-            <form class="form-horizontal" action="#" name="newusercheckform" method="post">
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">ユーザID</label>
-                    <div class="col-sm-10">
-                        <p class="form-control-static">aaaa</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">パスワード</label>
-                    <div class="col-sm-10">
-                        <p class="form-control-static">＊＊＊＊＊＊＊</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">生年月日</label>
-                    <div class="col-sm-10">
-                        <p class="form-control-static">yyyy:MM:dd</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">性別</label><br>
-                    <div class="col-sm-10">
-                        <p class="form-control-static">男</p>
-                    </div>
-                </div>
+            <form class="form-horizontal" action="#" name="newusercheckform" method="get">
+                <div class="form-group row">
+    				<label for="userid" class="col-sm-3 col-form-label">ユーザID</label>
+   					<div class="col-sm-9">
+     					<input type="text" readonly class="form-control-plaintext" id="userid" value="いちまる">
+  					</div>
+				</div>
+                <div class="form-group row">
+    				<label for="password" class="col-sm-3 col-form-label">パスワード</label>
+   					<div class="col-sm-9">
+     					<input type="text" readonly class="form-control-plaintext" id="password" value="*************">
+  					</div>
+				</div>
+                <div class="form-group row">
+    				<label for="birthday" class="col-sm-3 col-form-label">生年月日</label>
+   					<div class="col-sm-9">
+     					<input type="text" readonly class="form-control-plaintext" id="birthday" value="YYYY/mm/DD">
+  					</div>
+				</div>
+                <div class="form-group row">
+    				<label for="sex" class="col-sm-3 col-form-label">性別</label>
+   					<div class="col-sm-9">
+     					<input type="text" readonly class="form-control-plaintext" id="sex" value="男">
+  					</div>
+				</div>
                 <button class="btn btn-secondary" onclick="history.back()">戻る</button>
                 <button type="submit" class="btn btn-secondary">登録</button>
             </form>

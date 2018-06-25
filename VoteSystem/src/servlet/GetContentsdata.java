@@ -10,10 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.ContentsDAO;
 import dao.ContentsdataDAO;
-import model.ContentsBean;
 import model.ContentsdataBean;
+import model.UserBean;
 
 /**
  * Servlet implementation class GetContentsdata
@@ -35,13 +34,19 @@ public class GetContentsdata extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		//参加者すべての情報を取得し、セッションに格納
 		HttpSession session = request.getSession();
-		String id = request.getParameter("id");
+		
+		String contentsid = request.getParameter("c_id");
+		String contentsdataid = request.getParameter("d_id");
 		ContentsdataDAO contentsdatadao = new ContentsdataDAO();
-		ArrayList<ContentsdataBean> arraycontentsdata = new ArrayList<ContentsdataBean>();
-		arraycontentsdata = contentsdatadao.getAllContentsdata(id);
-		session.setAttribute("arraycontentsdata",arraycontentsdata);
-		request.getRequestDispatcher("U04.jsp").forward(request, response);
+		ContentsdataBean contentsdata = new ContentsdataBean();
+		
+		contentsdata = contentsdatadao.getContentsdate(contentsid, contentsdataid);
+		
+		session.setAttribute("contentsdata", contentsdata);
+		
+		request.getRequestDispatcher("*.jsp").forward(request, response);
 	}
 
 	/**

@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <title>投票システム - コンテンツ一覧</title>
+    <title>投票システ</title>
 </head>
 <body id="contents">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="contents.jsp">投票システム</a>
+        <a class="navbar-brand" href="contents.html">投票システム</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -31,47 +31,57 @@
     </nav>
 
     <div class="container">
-        <div class="image"><img class="img-fluid" src="img/contents_test.jpeg" width="100%" alt="コンテンツ一覧"></div>
+        <h1><img class="img-fluid" src="img/contents_test.jpeg" width="100%" alt="コンテンツ一覧"></h1>
         <div class="row">
             <!-- 固定サイドメニュー -->
-            <div class="col-12 col-md-3 col-xl-3 bd-sidebar">
-                <div class="list-group">
-					<a href="#" class="list-group-item list-group-item-action list-group-item-warning">開催中</a>
-					<a href="#" class="list-group-item list-group-item-action">いちまるコンテスト</a>
-					<a href="#" class="list-group-item list-group-item-action">いちまるコンテスト</a>
-					<a href="#" class="list-group-item list-group-item-action list-group-item-secondary">終了</a>
-					<a href="#" class="list-group-item list-group-item-action">いちまるコンテスト</a>
-					<a href="#" class="list-group-item list-group-item-action">いちまるコンテスト</a>
-				</div>
+            <div class="col-12 col-md-3 col-xl-4 bd-sidebar">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link disabled">開催中</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">　いちまるコンテスト</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">　いちまる</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">　いちまる</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">終了</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">　いちまる</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">　いちまる</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">　いちまる</a>
+                    </li>
+                </ul>
             </div>
 
             <!-- コンテンツ一覧 -->
-            <main class="col-12 col-md-9 col-xl-9 bd-content">
-            	<h1>開催中のコンテスト</h1>
-                <div class="row">
-                    <div class="col-12">
-                        <article>
-                            <a href="contentslist.jsp">
-                                <img src="img/no_image.png" class="img-fluid" alt="test" width="100%" height="200">
-                                <div class="sample-box-3">
-                                    <p class="textcenter">開催期間: 2018/1/1 〜 2018/2/1</p>
-                                    <p class="textcenter title">ミス・コンテスト</p>
-                                </div>
-                            </a>
-                        </article>
-                    </div>
-                    <div class="col-12">
-                        <article>
-                            <a href="contentslist.jsp">
-                                <img src="img/no_image.png" class="img-fluid" alt="test" width="100%" height="200">
-                                <div class="sample-box-3">
-                                    <p class="textcenter">開催期間: 2018/1/1 〜 2018/2/1</p>
-                                    <p class="textcenter title">ミスター・コンテスト</p>
-                                </div>
-                            </a>
-                        </article>
-                    </div>
-                </div>
+            <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
+
+	            <table class="table table-bordered">
+	              <tr>
+	                <th class="bg-light">コンテスト名</th>
+	                <th class="bg-light">投票内容</th>
+	                <th class="bg-light">日付</th>
+	              </tr>
+	              <tr>
+	                <td>一丸コンテスト</td>
+	                <td>aaa</td>
+	                <td>yyyymmdd</td>
+	              </tr>
+	
+	            </table>
+	
+	            <button class="back" onclick="history.back()">戻る</button>
+            
             </main>
         </div>
     </div>

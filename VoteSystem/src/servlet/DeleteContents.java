@@ -1,10 +1,6 @@
 package servlet;
 
-import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.io.OutputStream;
-
-import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,16 +12,16 @@ import dao.ContentsDAO;
 import dao.ContentsdataDAO;
 
 /**
- * Servlet implementation class GetContentsdataPicture
+ * Servlet implementation class DeleteContents
  */
-@WebServlet("/GetContentsdataPicture")
-public class GetContentsdataPicture extends HttpServlet {
+@WebServlet("/DeleteContents")
+public class DeleteContents extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetContentsdataPicture() {
+    public DeleteContents() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,23 +31,16 @@ public class GetContentsdataPicture extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String id = request.getParameter("id");//商品のidを取得
-		String id2 = request.getParameter("id2");//商品のidを取得
-		ContentsdataDAO contentsdatadao = new ContentsdataDAO();//daoの用意
-		HttpSession session = request.getSession();
-		BufferedImage img;
-		if(session.getAttribute("bi")!=null){
-			img = (BufferedImage)session.getAttribute("bi");
-			session.removeAttribute("bi");
-		}else{
-			img =  contentsdatadao.getPicture(id, id2);
-		}
 		
-		// 画像をクライアントに返却する
-		response.setContentType("image/jpeg");//画像の型指定
-		OutputStream os = response.getOutputStream();//レスポンスから画像のセット
-		ImageIO.write(img, "jpg", os);//表示
-		os.flush();//jspに返す
+		String contentsid = request.getParameter("c_id");
+		ContentsdataDAO contentsdatadao = new ContentsdataDAO();
+		ContentsDAO contentsdao = new ContentsDAO();
+		
+		contentsdatadao.contentsdataAllDelete(contentsid);
+		contentsdao.contentsDelete(contentsid);
+		
+		
+		request.getRequestDispatcher("GetContents").forward(request, response);
 	}
 
 	/**

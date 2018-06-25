@@ -26,6 +26,7 @@ public class VotehistoryDAO extends DaoBase{
 				votehistorybean.setUserID(rs.getString("userID"));
 				votehistorybean.setContentsID(rs.getString("contentsID"));
 				votehistorybean.setContentsdataID(rs.getString("contentsdataID"));
+				votehistorybean.setVotedate(rs.getDate("votedate"));
 				
 				arrayvotehistory.add(votehistorybean);
 			}
@@ -49,7 +50,7 @@ public class VotehistoryDAO extends DaoBase{
 				//super.DbOpen();
 				super.connection();
 				
-				String sql  ="select count(*) from votehistory where contentsID = ?";
+				String sql ="select count(*) from votehistory where contentsID = ?";
 				stmt = con.prepareStatement(sql);
 				stmt.setString(1, id);
 				rs=stmt.executeQuery();
@@ -101,7 +102,7 @@ public class VotehistoryDAO extends DaoBase{
 			try{
 				//super.DbOpen();
 				super.connection();
-				String sql  ="insert into votehistory values(?,?,?)";
+				String sql  ="insert into votehistory (userID,contentsID,contentsdataID) values(?,?,?)";
 				
 				stmt = con.prepareStatement(sql);
 				

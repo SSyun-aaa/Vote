@@ -1,13 +1,9 @@
 package servlet;
 
-import java.awt.image.BufferedImage;
-import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Blob;
 import java.sql.Date;
 
-import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,24 +12,21 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
-import org.apache.commons.lang3.RandomStringUtils;
-
 import dao.ContentsDAO;
-import dao.ContentsdataDAO;
 import model.ContentsBean;
-import model.ContentsdataBean;
+import model.UserBean;
 
 /**
- * Servlet implementation class InsertContents
+ * Servlet implementation class UpdateContents
  */
-@WebServlet("/InsertContents")
-public class InsertContents extends HttpServlet {
+@WebServlet("/UpdateContents")
+public class UpdateContents extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InsertContents() {
+    public UpdateContents() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,12 +37,15 @@ public class InsertContents extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
+		String id = request.getParameter("id");
 		ContentsDAO contentsdao = new ContentsDAO();
+		ContentsBean updatecontents = new ContentsBean();
 		
-		ContentsBean contentsbean = (ContentsBean)session.getAttribute("insertcontents");
-		contentsdao.contentsInsert(contentsbean.getContentsID(), contentsbean.getContentsName(), contentsbean.getStartDate(), contentsbean.getEndDate(), (InputStream)contentsbean.getContentsPicture());;
+		updatecontents = contentsdao.getContents(id);
 		
-		request.getRequestDispatcher("GetContents").forward(request, response);
+		session.setAttribute("updatecontents", updatecontents);
+		
+		request.getRequestDispatcher("*.jsp").forward(request, response);
 	}
 
 	/**
@@ -57,9 +53,10 @@ public class InsertContents extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-        HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
+		ContentsDAO contentsdao = new ContentsDAO();
+		ContentsBean contentsbean = (ContentsBean)session.getAttribute("updatecontents");
 		
-		String id = RandomStringUtils.randomAlphabetic(10)+RandomStringUtils.randomNumeric(10);//ランダム生成
 		String name = request.getParameter("name");
 		Date start = Date.valueOf(request.getParameter("start"));
 		Date end = Date.valueOf(request.getParameter("end"));
@@ -69,15 +66,9 @@ public class InsertContents extends HttpServlet {
 		if (filePart != null) {
 			is = filePart.getInputStream();
 		}
+		contentsdao.contentsUpdate(contentsbean.getContentsID(), name, start, end, is);
 		
-		ContentsBean contentsbean = new ContentsBean(id, name, null, start, end, (Blob)is);
-		BufferedInputStream bis = new BufferedInputStream(is);
-		BufferedImage bi = ImageIO.read(bis);
-		
-		session.setAttribute("insertcontents",contentsbean);
-		session.setAttribute("insertcontentspicture",bi);
-		//フォワード画面入力予定
-		request.getRequestDispatcher(".jsp").forward(request, response);
+		request.getRequestDispatcher("GetContents").forward(request, response);
 	}
 
 }

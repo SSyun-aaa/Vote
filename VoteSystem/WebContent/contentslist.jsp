@@ -11,66 +11,48 @@
 </head>
 <body id="contents">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="contents.html">投票システム</a>
+        <a class="navbar-brand" href="contents.jsp">投票システム</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="contents.html">コンテスト一覧<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="contents.jsp">コンテスト一覧<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="mypage.html">マイページ</a>
+                    <a class="nav-link" href="mypage.jsp">マイページ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="logout.html">ログアウト</a>
+                    <a class="nav-link" href="logout.jsp">ログアウト</a>
                 </li>
             </ul>
         </div>
     </nav>
 
     <div class="container">
-        <h1><img class="img-fluid" src="img/contents_test.jpeg" width="100%" alt="コンテンツ一覧"></h1>
+        <div class="image"><img class="img-fluid" src="img/contents_test.jpeg" width="100%" alt="コンテンツ一覧"></div>
         <div class="row">
             <!-- 固定サイドメニュー -->
-            <div class="col-12 col-md-12 col-xl-4 bd-sidebar">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link disabled">開催中</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">　いちまるコンテスト</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">　いちまる</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">　いちまる</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">終了</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">　いちまる</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">　いちまる</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">　いちまる</a>
-                    </li>
-                </ul>
+            <div class="col-12 col-md-3 col-xl-3 bd-sidebar">
+                <div class="list-group">
+					<a href="#" class="list-group-item list-group-item-action list-group-item-warning">開催中</a>
+					<a href="#" class="list-group-item list-group-item-action">いちまるコンテスト</a>
+					<a href="#" class="list-group-item list-group-item-action">いちまるコンテスト</a>
+					<a href="#" class="list-group-item list-group-item-action list-group-item-secondary">終了</a>
+					<a href="#" class="list-group-item list-group-item-action">いちまるコンテスト</a>
+					<a href="#" class="list-group-item list-group-item-action">いちまるコンテスト</a>
+				</div>
             </div>
 
             <!-- コンテンツ一覧 -->
-            <main class="col-12 col-md-12 col-xl-8 col-md-8 bd-content">
+            <main class="col-12 col-md-9 col-xl-9 bd-content">
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div>開催中</div>
-                        <img src="img/contents_test.jpeg" alt="見出し" width="100%">
+                        <div class="alert alert-warning textcenter" role="alert">開催中</div>
+                        <div class="alert alert-dark textcenter" role="alert">終了</div>
+                        <div class="image"><img src="img/contents_test.jpeg" alt="見出し" width="100%"></div>
                         <h2>第１回　いちまるコンテスト</h2>
-                        <p>説明文あああああああああああああああああああああああああああああああああああ</p>
                         <table class="table">
                             <tr>
                                 <th>開催期間</th>
@@ -81,50 +63,55 @@
                                 <td>20人</td>
                             </tr>
                         </table>
-                    </div>
+	                    <a href="votestatus.jsp">
+							<div class="alert alert-info textcenter" role="alert">
+								投票状況
+							</div>
+						</a>
+					</div>
                 </div>
                 <h3>出場者一覧</h3>
                 <div class="row">
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
                         <section>
-                            <div class="card" style="width: 18rem;">
+                            <div class="card" style="width: 14.5rem;">
                                 <img class="card-img-top" src="img/no_image.png" alt="一丸栄樹" width="200" height="200">
                                 <div class="card-body">
                                     <h5 class="card-title">一丸栄樹</h5>
-                                    <a href="contentsdata.html" class="btn btn-secondary">もっと見る</a>
+                                    <a href="contentsdata.jsp" class="btn btn-secondary">もっと見る</a>
                                 </div>
                             </div>
                         </section>
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
                         <section>
-                            <div class="card" style="width: 18rem;">
+                            <div class="card" style="width: 14.5rem;">
                                 <img class="card-img-top" src="img/marusan.jpg" alt="一丸栄樹" width="200" height="200">
                                 <div class="card-body">
                                     <h5 class="card-title">一丸栄樹</h5>
-                                    <a href="contentsdata.html" class="btn btn-secondary">もっと見る</a>
+                                    <a href="contentsdata.jsp" class="btn btn-secondary">もっと見る</a>
                                 </div>
                             </div>
                         </section>
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
                         <section>
-                            <div class="card" style="width: 18rem;">
+                            <div class="card" style="width: 14.5rem;">
                                 <img class="card-img-top" src="img/marusan.jpg" alt="一丸栄樹" width="200" height="200">
                                 <div class="card-body">
                                     <h5 class="card-title">一丸栄樹</h5>
-                                    <a href="contentsdata.html" class="btn btn-secondary">もっと見る</a>
+                                    <a href="contentsdata.jsp" class="btn btn-secondary">もっと見る</a>
                                 </div>
                             </div>
                         </section>
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
                         <section>
-                            <div class="card" style="width: 18rem;">
+                            <div class="card" style="width: 14.5rem;">
                                 <img class="card-img-top" src="img/marusan.jpg" alt="一丸栄樹" width="200" height="200">
                                 <div class="card-body">
                                     <h5 class="card-title">一丸栄樹</h5>
-                                    <a href="contentsdata.html" class="btn btn-secondary">もっと見る</a>
+                                    <a href="contentsdata.jsp" class="btn btn-secondary">もっと見る</a>
                                 </div>
                             </div>
                         </section>

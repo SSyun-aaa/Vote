@@ -7,41 +7,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <title>投票システム - コンテンツ詳細</title>
+    <title>投票システム - 管理者</title>
 </head>
-<body id="contents">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="contents.jsp">投票システム</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="contents.jsp">コンテスト一覧<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="mypage.jsp">マイページ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="logout.jsp">ログアウト</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+<body id="manager">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="manager.jsp">投票システム</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link" href="manager.jsp">管理者<span class="sr-only">(current)</span></a></li>
+				<li class="nav-item"><a class="nav-link" href="logout.jsp">ログアウト</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
 
     <div class="container">
-        <img class="img-fluid image" src="img/contents_test.jpeg" width="100%" alt="コンテンツ一覧">
+        <img class="img-fluid" src="img/contents_test.jpeg" width="100%" alt="コンテンツ一覧">
         <div class="row">
             <!-- 固定サイドメニュー -->
-            <div class="col-12 col-md-3 col-xl-4 bd-sidebar">
+            <div class="col-12 col-md-3 col-xl-3 bd-sidebar">
                 <div class="list-group">
 					<a href="#" class="list-group-item list-group-item-action list-group-item-warning">開催中</a>
-					<a href="#" class="list-group-item list-group-item-action">いちまるコンテスト</a>
-					<a href="#" class="list-group-item list-group-item-action">いちまるコンテスト</a>
+					<a href="#" class="list-group-item list-group-item-action">プレビュー</a>
+					<a href="#" class="list-group-item list-group-item-action">プレビュー</a>
 					<a href="#" class="list-group-item list-group-item-action list-group-item-secondary">終了</a>
-					<a href="#" class="list-group-item list-group-item-action">いちまるコンテスト</a>
-					<a href="#" class="list-group-item list-group-item-action">いちまるコンテスト</a>
+					<a href="#" class="list-group-item list-group-item-action">プレビュー</a>
+					<a href="#" class="list-group-item list-group-item-action">プレビュー</a>
 				</div>
             </div>
 
@@ -69,7 +63,7 @@
                     </tr>
                 </table>
                 <button onclick="history.back()" class="btn btn-secondary">戻る</button>
-                <button type="button" class="btn btn-info" onclick="return confirm('（いちまる）に投票してもいいですか？')">投票する</button>
+                <button type="button" class="btn btn-info">登録</button>
             </main>
         </div>
     </div>

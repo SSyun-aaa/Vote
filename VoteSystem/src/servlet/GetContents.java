@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.ContentsDAO;
 import model.ContentsBean;
+import model.UserBean;
 
 /**
  * Servlet implementation class GetContents
@@ -33,13 +34,20 @@ public class GetContents extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		//すべてのコンテンツを取得し、セッションに格納
 		HttpSession session = request.getSession();
+		UserBean userbean = (UserBean)session.getAttribute("loginuser");
 		ContentsDAO contentsdao = new ContentsDAO();
 		ArrayList<ContentsBean> arraycontents = new ArrayList<ContentsBean>();
 		arraycontents = contentsdao.getAllContents();
 		session.setAttribute("arraycontents",arraycontents);
-		request.getRequestDispatcher("U02.jsp").forward(request, response);
-
+		
+		if(userbean.getAuthority().equals("A")){
+			request.getRequestDispatcher("U02.jsp").forward(request, response);
+		}else{
+			request.getRequestDispatcher("*.jsp").forward(request, response);
+		}
 	}
 
 	/**
