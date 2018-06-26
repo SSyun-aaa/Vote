@@ -60,34 +60,18 @@
                 <% for(int i = 0; i < contents.size(); i++){ %>
                 	<div class="col-12">
                 		<article>
-                			<a href="contents.jsp">
-                				
-                			</a>
+                			<form action="GetContents" method="post">
+                				<input type="hidden" name="id" value=<%= contents.get(i).getContentsID() %>>
+                				<img src="img/no_image.png" class="img-fluid" alt="test" width="100%" height="200">
+                				<div class="sample-box-3">
+                                    <p class="textcenter">開催期間: <%= contents.get(i).getStartDate() %> 〜 <%= contents.get(i).getEndDate() %></p>
+                                    <p class="textcenter title"><%= contents.get(i).getContentsName() %></p>
+                                    <button type="submit" class="btn btn-secondary">詳しく見る</button>
+                                </div>
+                			</form>
                 		</article>
                 	</div>
                	<% } %>
-                    <div class="col-12">
-                        <article>
-                            <a href="contentslist.jsp">
-                                <img src="img/no_image.png" class="img-fluid" alt="test" width="100%" height="200">
-                                <div class="sample-box-3">
-                                    <p class="textcenter">開催期間: 2018/1/1 〜 2018/2/1</p>
-                                    <p class="textcenter title">ミス・コンテスト</p>
-                                </div>
-                            </a>
-                        </article>
-                    </div>
-                    <div class="col-12">
-                        <article>
-                            <a href="contentslist.jsp">
-                                <img src="img/no_image.png" class="img-fluid" alt="test" width="100%" height="200">
-                                <div class="sample-box-3">
-                                    <p class="textcenter">開催期間: 2018/1/1 〜 2018/2/1</p>
-                                    <p class="textcenter title">ミスター・コンテスト</p>
-                                </div>
-                            </a>
-                        </article>
-                    </div>
                 </div>
             </main>
         </div>

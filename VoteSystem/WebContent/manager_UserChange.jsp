@@ -82,7 +82,7 @@
 				<form name="form" action="#" method="post" onsubmit="return check()">
 					<div class="form-group">
 						<label for="userId">ユーザID</label>
-						<input type="text" class="form-control" id="userId" name="userid" value="(ユーザID)" placeholder="(ユーザID)">
+						<input type="text" class="form-control" id="userId" name="userid" value="(ユーザID)" placeholder="(ユーザID)" readonly>
 					</div>
 					<div class="form-group">
 						<label for="userName">ユーザ名</label>
