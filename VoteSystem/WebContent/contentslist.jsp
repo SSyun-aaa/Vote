@@ -1,5 +1,15 @@
+<%@page import="model.ContentsBean"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	//コンテスト取得
+	ContentsBean contents = (ContentsBean)session.getAttribute("contentsBean");
+	
+	//コンテンツ詳細取得
+	ArrayList<ContentsBean> contentsdata = new ArrayList<ContentsBean>();
+	contentsdata = (ArrayList<ContentsBean>)session.getAttribute("contentsdata");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,18 +59,21 @@
             <main class="col-12 col-md-9 col-xl-9 bd-content">
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="alert alert-warning textcenter" role="alert">開催中</div>
-                        <div class="alert alert-dark textcenter" role="alert">終了</div>
+                    <% if(true){ %>
+                    	<div class="alert alert-warning textcenter" role="alert">開催中</div>
+                    <% } else { %>
+                    	<div class="alert alert-dark textcenter" role="alert">終了</div>
+                    <% } %>
                         <div class="image"><img src="img/contents_test.jpeg" alt="見出し" width="100%"></div>
-                        <h2>第１回　いちまるコンテスト</h2>
+                        <h2><%= contents.getContentsName() %></h2>
                         <table class="table">
                             <tr>
                                 <th>開催期間</th>
-                                <td>2018年2月1日〜2018年2月28日</td>
+                                <td><%= contents.getStartDate() %>〜<%= contents.getEndDate() %></td>
                             </tr>
                             <tr>
                                 <th>出場者数</th>
-                                <td>20人</td>
+                                <td><%= contentsdata.size() %></td>
                             </tr>
                         </table>
 	                    <a href="votestatus.jsp">
