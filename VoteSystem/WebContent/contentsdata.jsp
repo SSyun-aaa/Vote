@@ -69,7 +69,9 @@
                     </tr>
                 </table>
                 <button onclick="history.back()" class="btn btn-secondary">戻る</button>
-                <button type="button" class="btn btn-info" onclick="return confirm('（いちまる）に投票してもいいですか？')">投票する</button>
+                <form action="AddVote" method="post">
+                	<button type="button" class="btn btn-info" onclick="return confirm('（いちまる）に投票してもいいですか？')">投票する</button>
+            	</form>
             </main>
         </div>
     </div>

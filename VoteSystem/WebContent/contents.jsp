@@ -1,5 +1,12 @@
+<%@page import="model.ContentsBean"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	//コンテスト取得
+	ArrayList<ContentsBean> contents = new ArrayList<ContentsBean>();
+	contents = (ArrayList<ContentsBean>)session.getAttribute("contents");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,6 +38,7 @@
     </nav>
 
     <div class="container">
+    	<p><%= contents.get(0).getContentsID() %></p>
         <div class="image"><img class="img-fluid" src="img/contents_test.jpeg" width="100%" alt="コンテンツ一覧"></div>
         <div class="row">
             <!-- 固定サイドメニュー -->
@@ -49,6 +57,15 @@
             <main class="col-12 col-md-9 col-xl-9 bd-content">
             	<h1>開催中のコンテスト</h1>
                 <div class="row">
+                <% for(int i = 0; i < contents.size(); i++){ %>
+                	<div class="col-12">
+                		<article>
+                			<a href="contents.jsp">
+                				
+                			</a>
+                		</article>
+                	</div>
+               	<% } %>
                     <div class="col-12">
                         <article>
                             <a href="contentslist.jsp">
