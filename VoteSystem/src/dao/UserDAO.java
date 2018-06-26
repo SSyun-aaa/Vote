@@ -62,6 +62,61 @@ public class UserDAO extends DaoBase {
 			}
 		}
 	}
+	
+	//管理者からのユーザ情報変更
+	public void userUpdate(UserBean user){
+		//渡されたユーザ情報をユーザテーブルへ挿入
+		try{
+			//super.DbOpen();
+			super.connection();
+			String sql  ="Update user set userName=?,sex=?,birthday=? where userID = ?";
+
+			stmt = con.prepareStatement(sql);
+
+			stmt.setString(1, user.getUserName());
+			stmt.setString(2, user.getSex());
+			stmt.setDate(3, user.getBirthday());
+			stmt.setString(4, user.getUserID());
+
+			rsno = stmt.executeUpdate();
+
+		}catch(Exception e){
+			user=null;
+		}finally {
+			try{
+				super.DbClose();
+			}catch(Exception e){
+				System.out.println("error");
+			}
+		}
+	}
+	
+	//一般ユーザからのユーザ情報変更
+	public void userNameUpdate(String id,String name){
+		//渡されたユーザ情報をユーザテーブルへ挿入
+		try{
+			//super.DbOpen();
+			super.connection();
+			String sql  ="Update user set userName=? where userID = ?";
+
+			stmt = con.prepareStatement(sql);
+
+			stmt.setString(1, name);
+			stmt.setString(2, id);
+			
+
+			rsno = stmt.executeUpdate();
+
+		}catch(Exception e){
+			id = null;
+		}finally {
+			try{
+				super.DbClose();
+			}catch(Exception e){
+				System.out.println("error");
+			}
+		}
+	}
 
 	public void userDelete(String id){
 		try{
