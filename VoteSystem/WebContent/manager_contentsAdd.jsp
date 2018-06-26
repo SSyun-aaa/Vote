@@ -76,7 +76,7 @@
  					    <label for="contents">コンテンツ画像</label>
 					    <input type="file" class="form-control-file" id="contentsimage">
   					</div>
-  					<button type="submit" class="btn btn-secondary">登録</button>
+  					<button type="submit" class="btn btn-secondary">確認</button>
 				</form>
 			</div>
 		</div>
