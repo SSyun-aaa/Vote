@@ -1,3 +1,4 @@
+<%@page import="model.ContentsdataBean"%>
 <%@page import="model.ContentsBean"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -7,8 +8,8 @@
 	ContentsBean contents = (ContentsBean)session.getAttribute("contentsBean");
 	
 	//コンテンツ詳細取得
-	ArrayList<ContentsBean> contentsdata = new ArrayList<ContentsBean>();
-	contentsdata = (ArrayList<ContentsBean>)session.getAttribute("contentsdata");
+	ArrayList<ContentsdataBean> contentsdata = new ArrayList<ContentsdataBean>();
+	contentsdata = (ArrayList<ContentsdataBean>)session.getAttribute("contentsdata");
 %>
 <!DOCTYPE html>
 <html>
@@ -85,50 +86,21 @@
                 </div>
                 <h3>出場者一覧</h3>
                 <div class="row">
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                	<% for(int i = 0; i < contentsdata.size(); i++){ %>
+                	<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
                         <section>
-                            <div class="card" style="width: 14.5rem;">
-                                <img class="card-img-top" src="img/no_image.png" alt="一丸栄樹" width="200" height="200">
-                                <div class="card-body">
-                                    <h5 class="card-title">一丸栄樹</h5>
-                                    <a href="contentsdata.jsp" class="btn btn-secondary">もっと見る</a>
-                                </div>
-                            </div>
+                        	<form action="contentsdata.jsp" method="post">
+	                            <div class="card" style="width: 14.5rem;">
+	                                <img class="card-img-top" src="img/no_image.png" alt="一丸栄樹" width="200" height="200">
+	                                <div class="card-body">
+	                                    <h5 class="card-title"><%= contentsdata.get(i).getContentsdataName() %></h5>
+	                                    <button type="submit" class="btn btn-secondary">もっと見る</button>
+	                                </div>
+	                            </div>
+                            </form>
                         </section>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
-                        <section>
-                            <div class="card" style="width: 14.5rem;">
-                                <img class="card-img-top" src="img/marusan.jpg" alt="一丸栄樹" width="200" height="200">
-                                <div class="card-body">
-                                    <h5 class="card-title">一丸栄樹</h5>
-                                    <a href="contentsdata.jsp" class="btn btn-secondary">もっと見る</a>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
-                        <section>
-                            <div class="card" style="width: 14.5rem;">
-                                <img class="card-img-top" src="img/marusan.jpg" alt="一丸栄樹" width="200" height="200">
-                                <div class="card-body">
-                                    <h5 class="card-title">一丸栄樹</h5>
-                                    <a href="contentsdata.jsp" class="btn btn-secondary">もっと見る</a>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
-                        <section>
-                            <div class="card" style="width: 14.5rem;">
-                                <img class="card-img-top" src="img/marusan.jpg" alt="一丸栄樹" width="200" height="200">
-                                <div class="card-body">
-                                    <h5 class="card-title">一丸栄樹</h5>
-                                    <a href="contentsdata.jsp" class="btn btn-secondary">もっと見る</a>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
+                	<% } %>
                 </div>
             </main>
         </div>
