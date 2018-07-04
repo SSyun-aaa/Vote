@@ -43,83 +43,115 @@ public class VotehistoryDAO extends DaoBase{
 		return arrayvotehistory;
 	}
 	
-	//コンテンツごとの投票数取得
-		public int getContentsVotehistory(String id){
-			int count = -1;
+	//ユーザが対象コンテンツに投票済みか確認
+	public int getContentsVoteCheck(String userID,String contentsID,String contentsdataID){
+		int check = 0;
+		try{
+			//super.DbOpen();
+			super.connection();
+			
+			String sql = "select count(*) from votehistory where userID = ? and contentsID = ? and contentsdataID = ?";
+			stmt = con.prepareStatement(sql);
+			stmt.setString(1, userID);
+			stmt.setString(2, contentsID);
+			stmt.setString(3, contentsdataID);
+			rs = stmt.executeQuery();
+			rs.next();
+			
+			check = rs.getInt(1);
+ 			
+		}catch(Exception e){
+			
+		}finally {
 			try{
-				//super.DbOpen();
-				super.connection();
-				
-				String sql ="select count(*) from votehistory where contentsID = ?";
-				stmt = con.prepareStatement(sql);
-				stmt.setString(1, id);
-				rs=stmt.executeQuery();
-				rs.next();
-				
-				count = rs.getInt(1);
-				
+				super.DbClose();
 			}catch(Exception e){
-				
-			}finally {
-				try{
-					super.DbClose();
-				}catch(Exception e){
-					System.out.println("error");
-				}
+				System.out.println("error");
 			}
-			return count;
 		}
 		
-		//コンテンツ詳細ごとの投票数取得
-		public int getContentsdataVotehistory(String contentsid,String contentsdataid){
-			int count = -1;
-			try{
-				//super.DbOpen();
-				super.connection();
-						
-				String sql  ="select count(*) from votehistory where contentsID = ? and contentsdataID = ?";
-				stmt = con.prepareStatement(sql);
-				stmt.setString(1, contentsid);
-				stmt.setString(2, contentsdataid);
-				rs=stmt.executeQuery();
-				rs.next();
-						
-				count = rs.getInt(1);
-						
-			}catch(Exception e){
-						
-			}finally {
-				try{
-					super.DbClose();
-				}catch(Exception e){
-					System.out.println("error");
-				}
-			}
-			return count;
-		}
-		public void contentsdataInsert(String userid,String contentsid,String contentsdataid){
+		return check;
+	}
+	
+	//コンテンツごとの投票数取得
+	public int getContentsVotehistory(String id){
+		int count = -1;
+		try{
+			//super.DbOpen();
+			super.connection();
 			
+			String sql ="select count(*) from votehistory where contentsID = ?";
+			stmt = con.prepareStatement(sql);
+			stmt.setString(1, id);
+			rs=stmt.executeQuery();
+			rs.next();
+			
+			count = rs.getInt(1);
+			
+		}catch(Exception e){
+			
+		}finally {
 			try{
-				//super.DbOpen();
-				super.connection();
-				String sql  ="insert into votehistory (userID,contentsID,contentsdataID) values(?,?,?)";
-				
-				stmt = con.prepareStatement(sql);
-				
-				stmt.setString(1, userid);
-				stmt.setString(2, contentsid);
-				stmt.setString(3, contentsdataid);
-				
-				rsno = stmt.executeUpdate();
-					
+				super.DbClose();
 			}catch(Exception e){
-				
-			}finally {
-				try{
-					super.DbClose();
-				}catch(Exception e){
-					System.out.println("error");
-				}
+				System.out.println("error");
 			}
 		}
+		return count;
+	}
+	
+	//コンテンツ詳細ごとの投票数取得
+	public int getContentsdataVotehistory(String contentsid,String contentsdataid){
+		int count = -1;
+		try{
+			//super.DbOpen();
+			super.connection();
+					
+			String sql  ="select count(*) from votehistory where contentsID = ? and contentsdataID = ?";
+			stmt = con.prepareStatement(sql);
+			stmt.setString(1, contentsid);
+			stmt.setString(2, contentsdataid);
+			rs=stmt.executeQuery();
+			rs.next();
+					
+			count = rs.getInt(1);
+					
+		}catch(Exception e){
+					
+		}finally {
+			try{
+				super.DbClose();
+			}catch(Exception e){
+				System.out.println("error");
+			}
+		}
+		return count;
+	}
+	
+	//投票
+	public void contentsdataInsert(String userid,String contentsid,String contentsdataid){
+		
+		try{
+			//super.DbOpen();
+			super.connection();
+			String sql  ="insert into votehistory (userID,contentsID,contentsdataID) values(?,?,?)";
+			
+			stmt = con.prepareStatement(sql);
+			
+			stmt.setString(1, userid);
+			stmt.setString(2, contentsid);
+			stmt.setString(3, contentsdataid);
+			
+			rsno = stmt.executeUpdate();
+				
+		}catch(Exception e){
+			
+		}finally {
+			try{
+				super.DbClose();
+			}catch(Exception e){
+				System.out.println("error");
+			}
+		}
+	}
 }
