@@ -50,6 +50,35 @@ public class ContentsdataDAO extends DaoBase{
 			return arraycontentsdata;
 		}
 		
+		//同じidがあるか
+		public int duplicationContentdIdCheck(String contentsid,String contentsdataid){
+			int check = 0;
+			try {
+				//super.DbOpen();
+				super.connection();
+				
+				String sql = "select count(*) as check from contentsdata where contentsID = ? and contentsdataID = ?";
+				stmt = con.prepareStatement(sql);
+				stmt.setString(1, contentsid);
+				stmt.setString(2, contentsdataid);
+				rs = stmt.executeQuery();
+				
+				rs.next();
+				
+				check = rs.getInt("check");
+				
+			}catch(Exception e){
+							
+			}finally {
+				try{
+					super.DbClose();
+				}catch(Exception e){
+					System.out.println("error");
+				}
+			}
+			return check;
+		}
+		
 		//参加者1件の情報を取得
 		public ContentsdataBean getContentsdate(String contentsid,String contentsdataid){
 			ContentsdataBean contentsdatabean = new ContentsdataBean();

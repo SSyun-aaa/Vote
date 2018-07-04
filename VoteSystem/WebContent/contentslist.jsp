@@ -77,11 +77,11 @@
                                 <td><%= contentsdata.size() %></td>
                             </tr>
                         </table>
-	                    <a href="votestatus.jsp">
+                        <form action="VoteStatus" method="post">
 							<div class="alert alert-info textcenter" role="alert">
 								投票状況
 							</div>
-						</a>
+						</form>
 					</div>
                 </div>
                 <h3>出場者一覧</h3>

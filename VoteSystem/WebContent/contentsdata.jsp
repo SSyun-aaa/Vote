@@ -1,5 +1,10 @@
+<%@ page import="model.ContentsdataBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	ContentsdataBean contentsdataBean = (ContentsdataBean)session.getAttribute("contentsdataBean");
+	int check = (int)session.getAttribute("voteCheck");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,25 +58,29 @@
                 <table class="table">
                     <tr>
                         <th>名前</th>
-                        <td>いちまる　えいき</td>
+                        <td><%= contentsdataBean.getContentsdataName() %></td>
                     </tr>
                     <tr>
                         <th>性別</th>
-                        <td>男</td>
+                        <td><%= contentsdataBean.getSex() %></td>
                     </tr>
                     <tr>
                         <th>生年月日</th>
-                        <td>1997年7月12日</td>
+                        <td><%= contentsdataBean.getBirthday() %></td>
                     </tr>
                     <tr>
                         <th>概要</th>
-                        <td>がんばるぞい　はげやないぞい</td>
+                        <td><%= contentsdataBean.getIntroduction() %></td>
                     </tr>
                 </table>
                 <button onclick="history.back()" class="btn btn-secondary">戻る</button>
-                <form action="AddVote" method="post">
-                	<button type="button" class="btn btn-info" onclick="return confirm('（いちまる）に投票してもいいですか？')">投票する</button>
+                <% if(check == 0){ %>
+                <form action="AddVote" method="get">
+                	<button type="button" class="btn btn-info" onclick="return confirm('<%= contentsdataBean.getContentsdataName() %>に投票してもいいですか？')">投票する</button>
             	</form>
+            	<% }else{ %>
+            		<button type="button" class="btn btn-lg btn-info" disabled>投票済み</button>
+            	<% } %>
             </main>
         </div>
     </div>
