@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,21 +9,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.UserDAO;
-import model.PasswordBean;
-import model.UserBean;
-
 /**
- * Servlet implementation class UserUpdate
+ * Servlet implementation class DeleteUser
  */
-@WebServlet("/UserUpdate")
-public class UserUpdate extends HttpServlet {
+@WebServlet("/DeleteUser")
+public class DeleteUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserUpdate() {
+    public DeleteUser() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,19 +39,6 @@ public class UserUpdate extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		HttpSession session = request.getSession();
-
-		String userID = request.getParameter("userID");
-		String pass = request.getParameter("password");
-		String userName = request.getParameter("userName");
-		String sex = request.getParameter("sex");
-		Date birthday = Date.valueOf(request.getParameter("birthday"));
-
-		UserBean userbean = new UserBean(userID,userName,null,null,sex,birthday);
-		PasswordBean passwordbean = new PasswordBean(userID,pass);
-
-		UserDAO userdao = new UserDAO();
-
-		request.getRequestDispatcher("").forward(request, response);
 	}
 
 }

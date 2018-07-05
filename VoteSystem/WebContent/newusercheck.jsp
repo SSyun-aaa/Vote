@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import ="model.UserBean" import ="model.PasswordBean"%>
 <!-- 新規登録確認画面 -->
+<%
+UserBean user = (UserBean)session.getAttribute("newuser");
+PasswordBean password = (PasswordBean)session.getAttribute("userpass");
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -30,11 +34,11 @@
 
         <div class="container">
             <h1 class="textcenter">新規登録情報確認</h1>
-            <form class="form-horizontal" action="#" name="newusercheckform" method="get">
+            <form class="form-horizontal" action="NewUser" name="newusercheckform" method="get">
                 <div class="form-group row">
     				<label for="userid" class="col-sm-3 col-form-label">ユーザID</label>
    					<div class="col-sm-9">
-     					<input type="text" readonly class="form-control-plaintext" id="userid" value="いちまる">
+     					<input type="text" readonly class="form-control-plaintext" id="userid" value="<%= user.getUserID()%>">
   					</div>
 				</div>
                 <div class="form-group row">
@@ -46,7 +50,7 @@
                 <div class="form-group row">
     				<label for="birthday" class="col-sm-3 col-form-label">生年月日</label>
    					<div class="col-sm-9">
-     					<input type="text" readonly class="form-control-plaintext" id="birthday" value="YYYY/mm/DD">
+     					<input type="text" readonly class="form-control-plaintext" id="birthday" value=<%=user.getBirthday() %>>>
   					</div>
 				</div>
                 <div class="form-group row">

@@ -43,6 +43,7 @@ public class NewUser extends HttpServlet {
 
 		userdao.userInsert(userbean);
 		passworddao.passwordInsert(passwordbean);
+		session.removeAttribute("userpass");
 
 		request.getRequestDispatcher("mypage.jsp").forward(request, response);
 	}
@@ -56,9 +57,9 @@ public class NewUser extends HttpServlet {
 
 		HttpSession session = request.getSession();
 
-		String userID = request.getParameter("userID");
-		String pass = request.getParameter("password");
-		String userName = request.getParameter("userName");
+		String userID = request.getParameter("userid");
+		String pass = request.getParameter("password1");
+		String userName = request.getParameter("username");
 		String sex = request.getParameter("sex");
 		Date birthday = Date.valueOf(request.getParameter("birthday"));
 
@@ -66,13 +67,14 @@ public class NewUser extends HttpServlet {
 		UserBean check = new UserBean();
 		UserDAO userDAO = new UserDAO();
 		PasswordBean passwordbean = new PasswordBean(userID,pass);
-
+		System.out.println(userBean.getUserName());
 		check = userDAO.getUser(userID);
+		System.out.println(check.getUserName());
 		if(check == null){
 			session.setAttribute("usercheck", -1);
 			request.getRequestDispatcher("newuser.jsp").forward(request, response);
 		}else{
-			session.setAttribute("newuser", userBean);
+			session.setAttribute("loginUser", userBean);
 			session.setAttribute("userpass", passwordbean);
 			request.getRequestDispatcher("newusercheck.jsp").forward(request, response);
 		}
