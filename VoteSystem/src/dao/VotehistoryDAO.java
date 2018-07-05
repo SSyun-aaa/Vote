@@ -129,7 +129,7 @@ public class VotehistoryDAO extends DaoBase{
 	}
 	
 	//投票
-	public void contentsdataInsert(String userid,String contentsid,String contentsdataid){
+	public void voteInsert(String userid,String contentsid,String contentsdataid){
 		
 		try{
 			//super.DbOpen();
