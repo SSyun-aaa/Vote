@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.PasswordDAO;
+import dao.UserDAO;
+import model.PasswordBean;
+import model.UserBean;
+
 /**
  * Servlet implementation class DeleteUser
  */
@@ -29,7 +34,7 @@ public class DeleteUser extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -39,6 +44,18 @@ public class DeleteUser extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		HttpSession session = request.getSession();
+		
+		String id = request.getParameter("id");
+		
+		UserBean userbean = (UserBean)session.getAttribute("loginUser");
+		PasswordBean passwordbean = (PasswordBean)session.getAttribute("loginUser");
+		
+		UserDAO userdao = new UserDAO();
+		userdao.userDelete(id);
+		PasswordDAO passworddao = new PasswordDAO();
+		passworddao.passwordDelete(id);
+		
+		request.getRequestDispatcher("").forward(request, response);
 	}
 
 }
