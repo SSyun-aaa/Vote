@@ -41,6 +41,7 @@ public class InsertContents extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
@@ -55,6 +56,7 @@ public class InsertContents extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
         HttpSession session = request.getSession();
@@ -77,7 +79,7 @@ public class InsertContents extends HttpServlet {
 		session.setAttribute("insertcontents",contentsbean);
 		session.setAttribute("insertcontentspicture",bi);
 		//フォワード画面入力予定
-		request.getRequestDispatcher(".jsp").forward(request, response);
+		request.getRequestDispatcher("manager_contentsAddCheck.jsp").forward(request, response);
 	}
 
 }

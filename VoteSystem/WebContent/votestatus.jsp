@@ -1,5 +1,12 @@
+<%@page import="model.ContentsBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	ContentsBean contentsBean = (ContentsBean)session.getAttribute("contentsBean");
+	int allvote = (int)session.getAttribute("allvote");
+	int man = (int)session.getAttribute("man");
+	int woman = (int)session.getAttribute("woman");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,20 +55,20 @@
 			<main class="col-12 col-md-9 col-xl-9 bd-content">
 				<div class="row">
 					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-						<h1>（コンテンツ名）の投票状況</h1>
+						<h1><%= contentsBean.getContentsName() %>の投票状況</h1>
 						<img src="img/no_image.png" width="100%" alt="コンテンツ画像">
 						<table class="table">
 	                        <tr>
 	                            <th>投票数</th>
-	                            <td>（投票数）</td>
+	                            <td><%= allvote %></td>
 	                        </tr>
 	                        <tr>
 	                            <th>男性</th>
-	                            <td>50%</td>
+	                            <td><%= man / allvote * 100 %>%</td>
 	                        </tr>
 	                        <tr>
 	                            <th>女性</th>
-	                            <td>50%</td>
+	                            <td><%= woman / allvote * 100 %>%</td>
 	                        </tr>
 	                    </table>
 					</div>

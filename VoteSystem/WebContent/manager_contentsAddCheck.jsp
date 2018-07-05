@@ -1,5 +1,11 @@
+<%@page import="java.awt.image.BufferedImage"%>
+<%@page import="model.ContentsBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	ContentsBean contentsBean = (ContentsBean)session.getAttribute("insertcontents");
+	BufferedImage bi = (BufferedImage)session.getAttribute("insertcontentspicture");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,11 +54,11 @@
 					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 		                <div class="alert alert-warning textcenter" role="alert">開催中</div>
 		                <div class="image"><img src="img/contents_test.jpeg" alt="見出し" width="100%"></div>
-		                <h2>（コンテンツ名）</h2>
+		                <h2><%= contentsBean.getContentsName() %></h2>
 		                <table class="table">
 		                    <tr>
 		                        <th>開催期間</th>
-		                        <td>（投票開始日）〜（投票終了日）</td>
+		                        <td><%= contentsBean.getStartDate() %>〜<%= contentsBean.getEndDate() %></td>
 		                    </tr>
 		                    <tr>
 		                        <th>出場者数</th>
@@ -101,7 +107,9 @@
 		            </div> 
 				</div>
 				<button type="button" class="btn btn-secondary">戻る</button>
-                <button type="button" class="btn btn-primary">登録</button>
+				<form action="InsertContents" method="get">
+                	<button type="button" class="btn btn-primary">登録</button>
+                </form>
 			</main>
 		</div>
 	</div>

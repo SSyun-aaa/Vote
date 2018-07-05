@@ -77,7 +77,7 @@
                                 <td><%= contentsdata.size() %></td>
                             </tr>
                         </table>
-                        <form action="VoteStatus" method="post">
+                        <form action="VoteStatus" method="get">
 							<div class="alert alert-info textcenter" role="alert">
 								投票状況
 							</div>
