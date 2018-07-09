@@ -31,7 +31,7 @@
     <div class="container">
         <h1 class="textcenter">新規登録</h1>
 
-        <form action="#" name="form" method="post" onsubmit="return check()">
+        <form action="NewUser" name="form" method="post" onsubmit="return check()">
             <div class="form-group">
                 <label for="exampleInputUserID">ユーザID</label>
                 <input type="text" name="userid" class="form-control" id="exampleInputUserID" placeholder="UserID">
@@ -49,7 +49,7 @@
                 <input type="password" name="password2" class="form-control" id="exampleInputPassword2" placeholder="Password(確認用)">
             </div>
             <div class="form-group">
-				<label for="birthday">生年月日</label><br> 
+				<label for="birthday">生年月日</label><br>
 				<input type="date" class="form-control" name="birthday">
 			</div>
             <div class="form-group">
@@ -74,7 +74,7 @@
     <footer class="footer">
         <small>Copyright &copy; Sato Team, all rights reserved.</small>
     </footer>
-    
+
     <script>
     	function check(){
     		var flg = 0;
@@ -88,7 +88,7 @@
     				alert = alert + "¥nパスワードが一致していません。"
     			}
     		}
-    		
+
     		if(flg = 1){
     			return false;
     		} else {
@@ -96,7 +96,7 @@
     		}
     	}
     </script>
-    
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>

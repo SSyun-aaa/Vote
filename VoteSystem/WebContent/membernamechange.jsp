@@ -49,7 +49,7 @@
 			<div class="row">
 				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 					<h1>ユーザ名の変更</h1>
-					<form name="form" action="#" method="post" onsubmit="return check()">
+					<form name="form" action="UpdateUser" method="post" onsubmit="return check()">
 						<div class="form-group row">
 							<label for="name" class="col-sm-3 col-form-label">現在のユーザ名</label>
 							<div class="col-sm-9">

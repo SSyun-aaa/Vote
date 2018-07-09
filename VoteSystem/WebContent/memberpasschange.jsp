@@ -49,17 +49,17 @@
 			<div class="row">
 				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 					<h1>ユーザ名の変更</h1>
-					<form onsubmit="return check()" action="#" name="form" method="post">
+					<form onsubmit="return check()" action="UpdatePassword" name="form" method="post">
 						<div class="form-group row">
 							<label for="pass" class="col-sm-3 col-form-label">現在のパスワード</label>
 							<div class="col-sm-9">
-								<input type="password" class="form-control" id="pass" placeholder="現在のパスワード">
+								<input type="password" class="form-control" name="oldpass" id="pass" placeholder="現在のパスワード">
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="newpass1" class="col-sm-3 col-form-label">新しいパスワード</label>
 							<div class="col-sm-9">
-								<input type="text" class="form-control" id="newpass1" placeholder="新しいパスワード">
+								<input type="text" class="form-control" name="newpass" id="newpass1" placeholder="新しいパスワード">
 							</div>
 						</div>
 						<div class="form-group row">
@@ -97,15 +97,15 @@
 			if(document.form.newpass1.value == "" || document.form.newpass2.value == ""){
 				flg = 1;
 			}
-			if(document.form.newpass1.value == document.form.newpass2.value){
+			if(document.form.newpass1.value != document.form.newpass2.value){
 				flg = 2;
 			}
-			
+
 			if(flg == 1){
-				alert('パスワードが一致しません');
+				alert('必要項目が入力されていません');
 				return false;
 			} else if(flg == 2){
-				alert('必要項目が入力されていません');
+				alert('パスワードが一致しません');
 				return false;
 			} else {
 				return true;
