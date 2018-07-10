@@ -100,6 +100,60 @@ public class VotehistoryDAO extends DaoBase{
 		return count;
 	}
 	
+	//対象コンテンツの男性の投票数取得
+	public int getContentsManVotehistory(String contentsid){
+		int count = -1;
+		try{
+			//super.DbOpen();
+			super.connection();
+			
+			String sql ="select count(*) from votehistory where contentsID = ? and sex = '男'";
+			stmt = con.prepareStatement(sql);
+			stmt.setString(1, contentsid);
+			rs=stmt.executeQuery();
+			rs.next();
+			
+			count = rs.getInt(1);
+			
+		}catch(Exception e){
+			
+		}finally {
+			try{
+				super.DbClose();
+			}catch(Exception e){
+				System.out.println("error");
+			}
+		}
+		return count;
+	}
+	
+	//対象コンテンツの女性の投票数取得
+		public int getContentsWomanVotehistory(String contentsid){
+			int count = -1;
+			try{
+				//super.DbOpen();
+				super.connection();
+				
+				String sql ="select count(*) from votehistory where contentsID = ? and sex = '女'";
+				stmt = con.prepareStatement(sql);
+				stmt.setString(1, contentsid);
+				rs=stmt.executeQuery();
+				rs.next();
+				
+				count = rs.getInt(1);
+				
+			}catch(Exception e){
+				
+			}finally {
+				try{
+					super.DbClose();
+				}catch(Exception e){
+					System.out.println("error");
+				}
+			}
+			return count;
+		}
+	
 	//コンテンツ詳細ごとの投票数取得
 	public int getContentsdataVotehistory(String contentsid,String contentsdataid){
 		int count = -1;
