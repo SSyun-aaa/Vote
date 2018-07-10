@@ -55,7 +55,7 @@
 					</div>
 				</div>
 				<h1>コンテンツ登録</h1>
-				<form name="form" action="#" method="post" onsubmit="return check()">
+				<form name="form" action="${pageContext.request.contextPath}/InsertContents" method="post" onsubmit="return check()">
 					<div class="form-group">
 						<label for="contentsId">コンテンツID</label>
 						<input type="text" class="form-control" id="contentsId" placeholder="コンテンツID" readonly>

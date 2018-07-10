@@ -53,7 +53,9 @@
 				<div class="row">
 					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 		                <div class="alert alert-warning textcenter" role="alert">開催中</div>
-		                <div class="image"><img src="img/contents_test.jpeg" alt="見出し" width="100%"></div>
+		                <div class="image">
+		                	<img src="${pageContext.request.contextPath}/InsertContentsPicture" alt="プレビュー画像" width="100%">
+		                </div>
 		                <h2><%= contentsBean.getContentsName() %></h2>
 		                <table class="table">
 		                    <tr>
