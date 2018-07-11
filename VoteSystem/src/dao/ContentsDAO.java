@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
+import com.mysql.jdbc.Blob;
+
 import model.ContentsBean;
 //変更
 public class ContentsDAO extends DaoBase {
@@ -148,6 +150,32 @@ public class ContentsDAO extends DaoBase {
 	}
 	
 	public void contentsUpdate(String id,String name,Date start,Date end,InputStream picture){
+		try{
+			//super.DbOpen();
+			super.connection();
+			
+			String sql ="Update contents set contentsName=?,startDate=?,endDate=?,contentsPicture=? where contentsID = ?";
+			stmt = con.prepareStatement(sql);
+			
+			stmt.setString(1, name);
+			stmt.setDate(2, start);
+			stmt.setDate(3, end);
+			stmt.setBlob(4, picture);
+			stmt.setString(5, id);
+			rsno=stmt.executeUpdate();
+			
+			}catch(Exception e){
+				
+			}finally {
+				try{
+					super.DbClose();
+				}catch(Exception e){
+					System.out.println("error");
+				}
+			}
+	}
+	
+	public void contentsUpdateBlob(String id,String name,Date start,Date end,java.sql.Blob picture){
 		try{
 			//super.DbOpen();
 			super.connection();

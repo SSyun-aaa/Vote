@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Date;
 
 import javax.servlet.ServletException;
@@ -34,6 +35,7 @@ public class UpdateContents extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
@@ -45,12 +47,13 @@ public class UpdateContents extends HttpServlet {
 		
 		session.setAttribute("updatecontents", updatecontents);
 		
-		request.getRequestDispatcher("*.jsp").forward(request, response);
+		request.getRequestDispatcher("manager_contentsUpdate.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
@@ -65,8 +68,12 @@ public class UpdateContents extends HttpServlet {
 		Part filePart = request.getPart("picture");
 		if (filePart != null) {
 			is = filePart.getInputStream();
+			contentsdao.contentsUpdate(contentsbean.getContentsID(), name, start, end, is);
+		}else{
+			Blob picture = ;
+			contentsdao.contentsUpdateBlob(contentsbean.getContentsID(), name, start, end, contentsbean.getContentsPicture());
 		}
-		contentsdao.contentsUpdate(contentsbean.getContentsID(), name, start, end, is);
+		
 		
 		request.getRequestDispatcher("GetContents").forward(request, response);
 	}
