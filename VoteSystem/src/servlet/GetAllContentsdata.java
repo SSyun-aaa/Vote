@@ -34,6 +34,7 @@ public class GetAllContentsdata extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
@@ -54,7 +55,7 @@ public class GetAllContentsdata extends HttpServlet {
 		session.setAttribute("arraycontentsdata",arraycontentsdata);
 		
 		if(userbean.getAuthority().equals("A")){
-			request.getRequestDispatcher("*.jsp").forward(request, response);
+			request.getRequestDispatcher("manager_contentsData.jsp").forward(request, response);
 		}else{
 			request.getRequestDispatcher("*.jsp").forward(request, response);
 		}
@@ -63,6 +64,7 @@ public class GetAllContentsdata extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

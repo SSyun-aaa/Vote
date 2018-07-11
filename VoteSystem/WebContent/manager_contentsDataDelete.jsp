@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	ArrayList<ContentsdataBean> contentsdata = (ArrayList<ContentsdataBean>)session.getAttribute("arraycontentsdata");
+	ContentsdataBean contentsdata = (ContentsdataBean)session.getAttribute("contentsdata");
 %>
 <!DOCTYPE html>
 <html>
@@ -59,7 +59,7 @@
 						</a>
 					</div>
 				</div>
-				<h1>コンテンツ詳細一覧</h1>
+				<h1>コンテンツ削除</h1>
 				<div class="row textcenter">
 					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 						<a href="manager_contentsDataAdd.jsp">
@@ -72,7 +72,6 @@
 				<div class="table-responsive">
 					<table class="table">
 	                   	<tr>
-							<th></th>
 	                      	<th>コンテンツ詳細ID</th>
 	                       	<th>コンテンツ詳細名</th>
 	                       	<th>性別</th>
@@ -80,29 +79,24 @@
 	                       	<th>概要</th>
 	                       	<th>画像</th>
 	                       	<th></th>
-	                       	<th></th>
 	                   	</tr>
-	                   	<% for(int i = 0; i < contentsdata.size(); i++){ %>
 	                   	<tr>
-	                   		<td><%= (i + 1) %></td>
-	                   		<td><%= contentsdata.get(i).getContentsdataID() %></td>
-	                   		<td><%= contentsdata.get(i).getContentsdataName() %></td>
-	                   		<td><%= contentsdata.get(i).getSex() %></td>
-	                   		<td><%= contentsdata.get(i).getBirthday() %></td>
+	                   		<td><%= contentsdata.getContentsdataID() %></td>
+	                   		<td><%= contentsdata.getContentsdataName() %></td>
+	                   		<td><%= contentsdata.getSex() %></td>
+	                   		<td><%= contentsdata.getBirthday() %></td>
 	                   		<td>
 		                       	<div class="dropdown">
 									<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">概要</button>
 									<div class="dropdown-menu p-4 text-muted"
 										style="max-width: 200px;">
-										<p><%= contentsdata.get(i).getIntroduction() %></p>
+										<p><%= contentsdata.getIntroduction() %></p>
 									</div>
 								</div>
 							</td>
-	                   		<td><img class="img-responsive" src="${pageContext.request.contextPath}/GetContentsdataPicture?id=<%= contentsdata.get(i).getContentsID() %>&id2=<%= contentsdata.get(i).getContentsdataID() %>" height="65" width="100" alt="<%= contentsdata.get(i).getContentsdataName() %>"></td>
-	                   		<td><button type="button" class="btn btn-warning" onclick="location.href='GetContentsdata?c_id=<%= contentsdata.get(i).getContentsID() %>&d_id=<%= contentsdata.get(i).getContentsdataID() %>&flg='change''">変更</button></td>
-	                       	<td><button type="button" class="btn btn-danger" onclick="location.href='GetContentsdata?c_id=<%= contentsdata.get(i).getContentsID() %>&d_id=<%= contentsdata.get(i).getContentsdataID() %>&flg='delete''">削除</button></td>
+	                   		<td><img class="img-responsive" src="${pageContext.request.contextPath}/GetContentsdataPicture?id=<%= contentsdata.getContentsID() %>&id2=<%= contentsdata.getContentsdataID() %>" height="65" width="100" alt="<%= contentsdata.getContentsdataName() %>"></td>
+	                       	<td><button type="button" class="btn btn-danger" onclick="location.href='DeleteContentsdata?c_id=<%= contentsdata.getContentsID() %>&d_id=<%= contentsdata.getContentsdataID() %>'">削除</button></td>
 	                   	</tr>
-	                   	<% } %>
 	                </table>
 	            </div>
 			</div>
