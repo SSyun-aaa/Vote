@@ -143,7 +143,7 @@ public class VotehistoryDAO extends DaoBase{
 			stmt.setString(3, contentsdataid);
 			
 			rsno = stmt.executeUpdate();
-				
+			
 		}catch(Exception e){
 			
 		}finally {
