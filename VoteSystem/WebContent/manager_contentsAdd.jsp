@@ -55,26 +55,26 @@
 					</div>
 				</div>
 				<h1>コンテンツ登録</h1>
-				<form name="form" action="#" method="post" onsubmit="return check()">
+				<form name="form" action="${pageContext.request.contextPath}/InsertContents" method="post" onsubmit="return check()">
 					<div class="form-group">
 						<label for="contentsId">コンテンツID</label>
 						<input type="text" class="form-control" id="contentsId" placeholder="コンテンツID" readonly>
 					</div>
 					<div class="form-group">
 						<label for="contentsName">コンテンツ名（コンテスト名）</label>
-						<input type="text" class="form-control" id="contentsName" placeholder="コンテンツ名">
+						<input type="text" class="form-control" name="name" id="contentsName" placeholder="コンテンツ名">
 					</div>
 					<div class="form-group">
 						<label for="start">投票開始日</label><br> 
-						<input type="datetime-local" class="form-control" name="starttime">
+						<input type="datetime-local" class="form-control" name="start">
 					</div>
 					<div class="form-group">
 						<label for="end">投票終了日</label><br>
-						<input type="datetime-local" class="form-control" name="endtime">
+						<input type="datetime-local" class="form-control" name="end">
 					</div>
 					<div class="form-group">
  					    <label for="contents">コンテンツ画像</label>
-					    <input type="file" class="form-control-file" id="contentsimage">
+					    <input type="file" class="form-control-file" name="picture" id="contentsimage">
   					</div>
   					<button type="submit" class="btn btn-secondary">確認</button>
 				</form>
