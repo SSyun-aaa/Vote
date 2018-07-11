@@ -68,15 +68,15 @@ public class LoginServlet extends HttpServlet {
 			userBean = userDAO.getUser(id);
 			session.setAttribute("loginUser",userBean);
 
+			//開催中コンテストを取得
+			ContentsDAO contentsDAO = new ContentsDAO();
+			ArrayList<ContentsBean> contents = new ArrayList<ContentsBean>();
+			contents = contentsDAO.getAllContents();
+
+			session.setAttribute("contents",contents);
+			
 			if(userBean.getAuthority().equals("U")){
 				path = "contents.jsp";
-
-				//開催中コンテストを取得
-				ContentsDAO contentsDAO = new ContentsDAO();
-				ArrayList<ContentsBean> contents = new ArrayList<ContentsBean>();
-				contents = contentsDAO.getAllContents();
-
-				session.setAttribute("contents",contents);
 			}else{
 				path = "manager.jsp";
 			}

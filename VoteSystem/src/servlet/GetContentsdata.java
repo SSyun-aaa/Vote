@@ -36,6 +36,7 @@ public class GetContentsdata extends HttpServlet {
 		
 		String contentsid = request.getParameter("c_id");
 		String contentsdataid = request.getParameter("d_id");
+		String flg = request.getParameter("flg");
 		ContentsdataDAO contentsdatadao = new ContentsdataDAO();
 		ContentsdataBean contentsdata = new ContentsdataBean();
 		
@@ -43,7 +44,15 @@ public class GetContentsdata extends HttpServlet {
 		
 		session.setAttribute("contentsdata", contentsdata);
 		
-		request.getRequestDispatcher("*.jsp").forward(request, response);
+		String path = "";
+		if(flg.equals("change")){
+			path = "manager_contentsDataChange.jsp";
+		}else if(flg.equals("delete")){
+			path = "manager_contentsDataDelete.jsp";
+		}else if (flg == null || flg == "") {
+			path = "*.jsp";
+		}
+		request.getRequestDispatcher(path).forward(request, response);
 	}
 
 	@Override

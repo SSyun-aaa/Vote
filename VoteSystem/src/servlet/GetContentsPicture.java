@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import dao.ContentsDAO;
 
 
-@WebServlet("/GetPicture")
+@WebServlet("/GetContentsPicture")
 public class GetContentsPicture extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     

@@ -28,7 +28,7 @@
 	<td><%= contents.getStartDate() %></td>
 	<td><%= contents.getEndDate() %></td>
 	
-	<td><img style="width:55%;" src="GetPicture?id=<%= contents.getContentsID() %>" class="pict"></td>
+	<td><img style="width:55%;" src="GetContentsPicture?id=<%= contents.getContentsID() %>" class="pict"></td>
 	<td><a href="GetContentsdata?id=<%=contents.getContentsID()%>">参加者一覧</a></td>
 	</tr>
 <%} %>
