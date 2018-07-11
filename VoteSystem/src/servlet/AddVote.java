@@ -32,7 +32,7 @@ public class AddVote extends HttpServlet {
 		if(check == 0){
 			//未投票
 			//投票処理
-			votehistoryDAO.contentsdataInsert(userBean.getUserID(), contentsdataBean.getContentsID(), contentsdataBean.getContentsdataID());
+			votehistoryDAO.voteInsert(userBean.getUserID(), contentsdataBean.getContentsID(), contentsdataBean.getContentsdataID());
 			path = "votecompletion.jsp";
 		}else{
 			//投票済
