@@ -1,5 +1,11 @@
+<%@page import="java.awt.image.BufferedImage"%>
+<%@page import="model.ContentsdataBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	ContentsdataBean contentsdataBean = (ContentsdataBean)session.getAttribute("insertcontentsdata");
+	BufferedImage bi = (BufferedImage)session.getAttribute("insertcontentsdatapicture");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,28 +48,28 @@
             <!-- コンテンツ一覧 -->
             <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
                 <h1>出場者のプロフィール</h1>
-                <img src="img/no_image.png" class="img-fluid" alt="プロフィール画像" width="800px" height="500px">
+                <img src="${pageContext.request.contextPath}/InsertContentsDataPicture" alt="プレビュー画像" width="800px" height="500px">
 
                 <table class="table">
                     <tr>
                         <th>名前</th>
-                        <td>いちまる　えいき</td>
+                        <td><%= contentsdataBean.getContentsdataName() %></td>
                     </tr>
                     <tr>
                         <th>性別</th>
-                        <td>男</td>
+                        <td><%= contentsdataBean.getSex() %></td>
                     </tr>
                     <tr>
                         <th>生年月日</th>
-                        <td>1997年7月12日</td>
+                        <td><%= contentsdataBean.getBirthday() %></td>
                     </tr>
                     <tr>
                         <th>概要</th>
-                        <td>がんばるぞい　はげやないぞい</td>
+                        <td><%= contentsdataBean.getIntroduction() %></td>
                     </tr>
                 </table>
                 <button onclick="history.back()" class="btn btn-secondary">戻る</button>
-                <button type="button" class="btn btn-info">登録</button>
+                <button type="button" onclick="location.href='InsertContentsdata'" class="btn btn-info">登録</button>
             </main>
         </div>
     </div>

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.VotehistoryDAO;
 import model.ContentsBean;
+import model.UserBean;
 
 
 @WebServlet("/VoteStatus")
@@ -31,6 +32,8 @@ public class VoteStatus extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		
+		UserBean userBean = (UserBean)session.getAttribute("loginUser");
+		
 		ContentsBean contentsBean = (ContentsBean)session.getAttribute("contentsBean");
 		VotehistoryDAO votehistoryDAO = new VotehistoryDAO();
 		
@@ -44,7 +47,14 @@ public class VoteStatus extends HttpServlet {
 		session.setAttribute("man", man);
 		session.setAttribute("woman", woman);
 		
-		request.getRequestDispatcher("votestatus.jsp").forward(request, response);
+		String path = "";
+		if (userBean.equals("A")) {
+			path = "manager_contentsStatus.jsp";
+		}else{
+			path = "votestatus.jsp";
+		}
+		
+		request.getRequestDispatcher(path).forward(request, response);
 	}
 
 	/**

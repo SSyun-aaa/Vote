@@ -70,8 +70,7 @@ public class UpdateContents extends HttpServlet {
 			is = filePart.getInputStream();
 			contentsdao.contentsUpdate(contentsbean.getContentsID(), name, start, end, is);
 		}else{
-			Blob picture = ;
-			contentsdao.contentsUpdateBlob(contentsbean.getContentsID(), name, start, end, contentsbean.getContentsPicture());
+			contentsdao.contentsUpdateBlob(contentsbean.getContentsID(), name, start, end);
 		}
 		
 		

@@ -164,41 +164,41 @@ public class ContentsDAO extends DaoBase {
 			stmt.setString(5, id);
 			rsno=stmt.executeUpdate();
 			
+		}catch(Exception e){
+			
+		}finally {
+			try{
+				super.DbClose();
 			}catch(Exception e){
-				
-			}finally {
-				try{
-					super.DbClose();
-				}catch(Exception e){
-					System.out.println("error");
-				}
+				System.out.println("error");
 			}
+		}
 	}
 	
-	public void contentsUpdateBlob(String id,String name,Date start,Date end,java.sql.Blob picture){
+	//画像の変更がなかった
+	public void contentsUpdateBlob(String id,String name,Date start,Date end){
 		try{
 			//super.DbOpen();
 			super.connection();
 			
-			String sql ="Update contents set contentsName=?,startDate=?,endDate=?,contentsPicture=? where contentsID = ?";
+			String sql ="Update contents set contentsName=?,startDate=?,endDate=? where contentsID = ?";
 			stmt = con.prepareStatement(sql);
 			
 			stmt.setString(1, name);
 			stmt.setDate(2, start);
 			stmt.setDate(3, end);
-			stmt.setBlob(4, picture);
-			stmt.setString(5, id);
+			stmt.setString(4, id);
 			rsno=stmt.executeUpdate();
 			
+		}catch(Exception e){
+			
+		}finally {
+			try{
+				super.DbClose();
 			}catch(Exception e){
-				
-			}finally {
-				try{
-					super.DbClose();
-				}catch(Exception e){
-					System.out.println("error");
-				}
+				System.out.println("error");
 			}
+		}
 	}
 	
 	public void contentsDelete(String id){
