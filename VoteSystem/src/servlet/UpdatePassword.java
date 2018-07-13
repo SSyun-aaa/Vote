@@ -50,7 +50,7 @@ public class UpdatePassword extends HttpServlet {
 		PasswordDAO passworddao = new PasswordDAO();
 		passworddao.passwordUpdate(passwordbean.getUserID(), pass);
 
-		request.getRequestDispatcher("member.jsp").forward(request, response);
+		request.getRequestDispatcher("mypage.jsp").forward(request, response);
 
 	}
 

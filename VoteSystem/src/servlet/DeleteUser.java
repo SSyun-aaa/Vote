@@ -20,7 +20,7 @@ import model.UserBean;
 @WebServlet("/DeleteUser")
 public class DeleteUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -44,18 +44,18 @@ public class DeleteUser extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		HttpSession session = request.getSession();
-		
+
 		String id = request.getParameter("id");
-		
+
 		UserBean userbean = (UserBean)session.getAttribute("loginUser");
 		PasswordBean passwordbean = (PasswordBean)session.getAttribute("loginUser");
-		
+
 		UserDAO userdao = new UserDAO();
 		userdao.userDelete(id);
 		PasswordDAO passworddao = new PasswordDAO();
 		passworddao.passwordDelete(id);
-		
-		request.getRequestDispatcher("").forward(request, response);
+
+		request.getRequestDispatcher("login.jsp").forward(request, response);
 	}
 
 }

@@ -50,7 +50,7 @@ public class UpdateUser extends HttpServlet {
 		UserDAO userdao = new UserDAO();
 		userdao.userNameUpdate(userbean.getUserID(),name);
 
-		request.getRequestDispatcher("member.jsp").forward(request, response);
+		request.getRequestDispatcher("mypage.jsp").forward(request, response);
 
 	}
 
